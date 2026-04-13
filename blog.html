@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>The Journal | Travel + Design Stories | Cynthia Stays Curated</title>
+  <meta name="title" content="The Journal | Travel + Interior Design Stories | Cynthia Stays Curated">
+  <meta name="description" content="Curated travel guides, interior design reveals, and short-term rental hosting insights from Cynthia — travel advisor and STR designer.">
+  <meta name="author" content="Cynthia Stays Curated">
+  <link rel="canonical" href="https://cynthiastayscurated.com/blog">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1c3939">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cynthiastayscurated.com/blog">
+  <meta property="og:title" content="The Journal | Travel + Interior Design Stories">
+  <meta property="og:description" content="Curated travel guides, interior design reveals, and short-term rental hosting insights.">
+  <meta property="og:image" content="https://cynthiastayscurated.com/images/og-blog.jpg">
+  <meta property="og:site_name" content="Cynthia Stays Curated">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Journal | Travel + Interior Design Stories">
+  <meta name="twitter:description" content="Curated travel guides, interior design reveals, and short-term rental hosting insights.">
+  <meta name="twitter:image" content="https://cynthiastayscurated.com/images/og-blog.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD: WebSite + SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cynthia Stays Curated",
+    "url": "https://cynthiastayscurated.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://cynthiastayscurated.com/blog?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "The Journal — Cynthia Stays Curated",
+    "url": "https://cynthiastayscurated.com/blog",
+    "description": "Travel guides, interior design reveals, and short-term rental hosting insights.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Cynthia Stays Curated",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cynthiastayscurated.com/images/cynthia-stays-curated-logo.png"
+      }
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cynthiastayscurated.com/" },
+      { "@type": "ListItem", "position": 2, "name": "The Journal", "item": "https://cynthiastayscurated.com/blog" }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #f8f6f2;
+      --cream-alt: #f4f1ec;
+      --teal-dark: #1c3939;
+      --teal: #2d6a6a;
+      --teal-footer: #2a6363;
+      --coral-solid: #e18c84;
+      --coral: rgba(225, 140, 132, 0.9);
+      --gold: #e1a75c;
+      --border-gray: #d4d0ca;
+      --font-heading: 'EB Garamond', serif;
+      --font-display: 'Bodoni Moda', 'Bodoni MT', 'Didot', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--teal-dark); background: var(--cream); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: var(--teal-dark); text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: transparent; transition: all 0.3s ease; }
+    .header.scrolled {
+      background: rgba(28, 57, 57, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+      padding: 8px 40px;
+    }
+    .header-logo { height: auto; transition: opacity 0.3s ease; }
+    .header-logo--stacked { width: 180px; }
+    .header-logo--horizontal { width: 280px; display: none; }
+    .header.scrolled .header-logo--stacked { display: none; }
+    .header.scrolled .header-logo--horizontal { display: block; }
+    .menu-btn { background: #e1a75c; border: none; padding: 10px 34px; border-radius: 50px; font-family: var(--font-body); font-size: 23px; font-weight: 400; color: var(--cream); cursor: pointer; transition: all 0.3s ease; min-width: 145px; height: 49px; display: flex; align-items: center; justify-content: center; }
+    .menu-btn:hover { background: #c9934e; }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      padding: 180px 60px 70px;
+      text-align: center;
+      background: var(--cream);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .breadcrumbs {
+      font-size: 13px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .breadcrumbs a { color: #888; }
+    .breadcrumbs a:hover { color: var(--teal); }
+
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: 88px;
+      font-weight: 400;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 20px;
+      color: var(--teal-dark);
+    }
+
+    .page-hero .subtitle {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-style: italic;
+      color: var(--teal-dark);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+    }
+
+    /* ===== CATEGORY PILLS ===== */
+    .category-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      padding: 10px 24px;
+      border: 1px solid var(--border-gray);
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pill:hover, .pill.active {
+      background: var(--teal-dark);
+      color: var(--cream);
+      border-color: var(--teal-dark);
+    }
+
+    /* ===== SEARCH ===== */
+    .search-wrap {
+      max-width: 420px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 14px 20px 14px 48px;
+      border: 1px solid var(--border-gray);
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .search-wrap input:focus { border-color: var(--teal-dark); }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: #888;
+    }
+
+    /* ===== FEATURED POST ===== */
+    .featured-section {
+      max-width: 1400px;
+      margin: 40px auto 80px;
+      padding: 0 60px;
+    }
+
+    .featured-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--coral-solid);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .featured-card .image-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .featured-card .image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .featured-card:hover .image-wrap img { transform: scale(1.04); }
+
+    .featured-card .category-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(248, 246, 242, 0.95);
+      color: var(--teal-dark);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .featured-card h2 {
+      font-family: var(--font-heading);
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+      color: var(--teal-dark);
+    }
+
+    .featured-card h2 a { color: inherit; transition: color 0.3s; }
+    .featured-card h2 a:hover { color: var(--teal); }
+
+    .featured-card .excerpt {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--teal-dark);
+      margin-bottom: 24px;
+      opacity: 0.85;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .post-meta .author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .post-meta .author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .post-meta .dot {
+      width: 3px;
+      height: 3px;
+      background: #ccc;
+      border-radius: 50%;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      padding: 14px 32px;
+      border: 1.5px solid var(--teal-dark);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .read-more:hover {
+      background: var(--teal-dark);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    .read-more svg { width: 16px; height: 16px; transition: transform 0.3s; }
+    .read-more:hover svg { transform: translateX(4px); }
+
+    /* ===== POST GRID ===== */
+    .blog-grid-wrap {
+      max-width: 1400px;
+      margin: 0 auto 80px;
+      padding: 0 60px;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: -1.5px;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .section-heading .count {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 40px;
+    }
+
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .post-card:hover { transform: translateY(-6px); }
+
+    .post-card .image-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/2;
+      margin-bottom: 20px;
+    }
+
+    .post-card .image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .post-card:hover .image-wrap img { transform: scale(1.06); }
+
+    .post-card .category-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(248, 246, 242, 0.95);
+      color: var(--teal-dark);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .post-card h3 {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: var(--teal-dark);
+    }
+
+    .post-card h3 a { color: inherit; transition: color 0.3s; }
+    .post-card h3 a:hover { color: var(--teal); }
+
+    .post-card .excerpt {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--teal-dark);
+      opacity: 0.8;
+      margin-bottom: 16px;
+    }
+
+    .post-card .post-meta {
+      margin-top: auto;
+      font-size: 12px;
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter {
+      background: var(--teal-dark);
+      color: var(--cream);
+      padding: 80px 60px;
+      text-align: center;
+      margin: 0 auto 80px;
+      max-width: 1400px;
+      border-radius: 24px;
+    }
+
+    .newsletter h3 {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: -1.5px;
+      margin-bottom: 14px;
+    }
+
+    .newsletter p {
+      font-size: 16px;
+      opacity: 0.85;
+      margin-bottom: 32px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+      gap: 12px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 1px solid rgba(248, 246, 242, 0.3);
+      border-radius: 50px;
+      background: rgba(248, 246, 242, 0.08);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .newsletter-form input::placeholder { color: rgba(248, 246, 242, 0.5); }
+    .newsletter-form input:focus { border-color: var(--cream); }
+
+    .newsletter-form button {
+      padding: 16px 36px;
+      background: var(--coral-solid);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #d47a72;
+      transform: translateY(-1px);
+    }
+
+    /* ===== PAGINATION ===== */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 80px;
+    }
+
+    .pagination a, .pagination span {
+      padding: 12px 18px;
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--teal-dark);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      text-align: center;
+    }
+
+    .pagination a:hover, .pagination .current {
+      background: var(--teal-dark);
+      color: var(--cream);
+      border-color: var(--teal-dark);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--teal-footer); color: var(--cream); padding: 60px 60px 30px; }
+    .footer-top { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(248, 246, 242, 0.18); }
+    .footer-logo-img { height: 70px; width: auto; }
+    .footer-content { display: grid; grid-template-columns: auto 1fr 1fr; gap: 100px; align-items: start; }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(248, 246, 242, 0.95); border-radius: 50%; color: var(--teal-footer); text-decoration: none; transition: all 0.3s; }
+    .footer-social a:hover { background: #fff; transform: translateY(-2px); }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 14px; }
+    .footer-links a { color: var(--cream); text-decoration: none; font-size: 16px; opacity: 0.88; transition: opacity 0.3s; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom { text-align: center; padding-top: 30px; font-size: 14px; opacity: 0.7; }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu { position: fixed; inset: 0; background: var(--teal-footer); z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu-close { position: absolute; top: 32px; right: 40px; background: var(--cream); border: none; width: 52px; height: 52px; border-radius: 50%; font-size: 22px; color: var(--teal-dark); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
+    .mobile-menu-close:hover { transform: rotate(90deg); }
+    .mobile-menu-links { list-style: none; text-align: center; width: 100%; max-width: 500px; padding: 0 40px; }
+    .mobile-menu-links li { padding: 22px 0; border-bottom: 1px solid rgba(248, 246, 242, 0.2); opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .mobile-menu-links li:last-child { border-bottom: none; }
+    .mobile-menu.open .mobile-menu-links li { opacity: 1; transform: translateY(0); }
+    .mobile-menu.open .mobile-menu-links li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(2) { transition-delay: 0.22s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(3) { transition-delay: 0.29s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(4) { transition-delay: 0.36s; }
+    .mobile-menu-links a { font-family: var(--font-heading); font-size: 34px; color: var(--cream); text-decoration: none; }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .post-card {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .post-card.visible { opacity: 1; transform: translateY(0); }
+    .post-card:nth-child(2).visible { transition-delay: 0.1s; }
+    .post-card:nth-child(3).visible { transition-delay: 0.2s; }
+    .post-card:nth-child(5).visible { transition-delay: 0.1s; }
+    .post-card:nth-child(6).visible { transition-delay: 0.2s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .page-hero h1 { font-size: 68px; }
+      .featured-card { grid-template-columns: 1fr; gap: 30px; }
+      .featured-card h2 { font-size: 40px; }
+      .post-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .header { padding: 14px 20px; }
+      .header.scrolled { padding: 10px 20px; }
+      .header-logo--stacked { width: 130px; }
+      .header-logo--stacked { width: 180px; }
+    .header-logo--horizontal { width: 280px; display: none; }
+    .header.scrolled .header-logo--stacked { display: none; }
+    .header.scrolled .header-logo--horizontal { display: block; }
+      .menu-btn { padding: 10px 26px; font-size: 18px; min-width: 120px; height: 44px; }
+
+      .page-hero { padding: 140px 24px 50px; }
+      .page-hero h1 { font-size: 48px; letter-spacing: -1.5px; }
+      .page-hero .subtitle { font-size: 18px; }
+
+      .featured-section, .blog-grid-wrap { padding: 0 24px; margin-bottom: 50px; }
+      .featured-card h2 { font-size: 32px; }
+
+      .section-heading { font-size: 32px; }
+
+      .post-grid { grid-template-columns: 1fr; gap: 36px; }
+
+      .newsletter { padding: 50px 24px; margin-bottom: 50px; border-radius: 16px; }
+      .newsletter h3 { font-size: 32px; }
+      .newsletter-form { flex-direction: column; }
+
+      .footer { padding: 50px 24px 30px; }
+      .footer-content { grid-template-columns: 1fr; gap: 36px; }
+      .footer-logo-img { height: 55px; }
+
+      .category-pills { gap: 8px; }
+      .pill { padding: 8px 18px; font-size: 11px; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3JQMEM8T2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z3JQMEM8T2');
+  </script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <a href="index.html" aria-label="Cynthia Stays Curated — Home">
+      <img src="images/cynthia-stays-curated-logo.png" alt="Cynthia Stays Curated" class="header-logo header-logo--stacked">
+      <img src="images/cynthia-stays-curated-logo-horizontal.png" alt="Cynthia Stays Curated" class="header-logo header-logo--horizontal">
+    </a>
+    <button class="menu-btn" id="menuBtn">+Menu</button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">&times;</button>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact-design.html">Free Design Consultation</a></li>
+      <li><a href="contact-travel.html">Free Travel Quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> &nbsp;/&nbsp; <span>The Journal</span>
+    </nav>
+    <h1>The Journal</h1>
+    <p class="subtitle">Curated travel guides, design reveals, and the stories behind unforgettable stays.</p>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" placeholder="Search stories, destinations, design tips...">
+    </div>
+
+    <div class="category-pills">
+      <button class="pill active" data-cat="all">All</button>
+      <button class="pill" data-cat="travel">Travel Guides</button>
+      <button class="pill" data-cat="design">Design Reveals</button>
+      <button class="pill" data-cat="hosting">STR Hosting</button>
+      <button class="pill" data-cat="tips">Tips &amp; How-To</button>
+      <button class="pill" data-cat="destinations">Destinations</button>
+    </div>
+  </section>
+
+  <!-- FEATURED POST -->
+  <section class="featured-section fade-up">
+    <span class="featured-label">★ Editor's Pick</span>
+    <article class="featured-card">
+      <a href="blog-post.html" class="image-wrap">
+        <img src="images/str-bedroom-design-vision-case-study.jpg" alt="Top-booked short-term rental bedroom at Fossil Farmstay in Joshua Tree — custom upholstered headboard, striped pillows, and navy bedding" loading="lazy">
+        <span class="category-tag">Design Reveal</span>
+      </a>
+      <div>
+        <h2><a href="blog-post.html">Fossil Farmstay: How We Turned a 1,200 sq ft Rental Into a Top 1% Booked Airbnb</a></h2>
+        <p class="excerpt">A full case study on designing, styling, and launching a short-term rental that booked out within 48 hours of going live — including exact sources, paint colors, budget breakdown, and the hosting systems that keep it running.</p>
+        <div class="post-meta">
+          <div class="author">
+            <img src="images/cynthia-travel-advisor-str-designer.jpg" alt="Cynthia — travel advisor and short-term rental designer" class="author-avatar" loading="lazy">
+            <span>Cynthia</span>
+          </div>
+          <span class="dot"></span>
+          <time datetime="2026-04-02">April 2, 2026</time>
+          <span class="dot"></span>
+          <span>12 min read</span>
+        </div>
+        <a href="blog-post.html" class="read-more">
+          Read the Story
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- POST GRID -->
+  <section class="blog-grid-wrap">
+    <h2 class="section-heading">
+      Latest Stories
+      <span class="count">24 articles</span>
+    </h2>
+
+    <div class="post-grid">
+      <article class="post-card">
+        <a href="blog-post.html" class="image-wrap">
+          <img src="images/disney-world-travel-advisor-card.jpg" alt="Cinderella Castle at Walt Disney World Magic Kingdom at sunrise" loading="lazy">
+          <span class="category-tag">Travel Guide</span>
+        </a>
+        <h3><a href="blog-post.html">The Complete 5-Day Walt Disney World Itinerary for First-Time Families</a></h3>
+        <p class="excerpt">Exactly which parks to visit each day, when to book Lightning Lane, and the one mistake we see most first-timers make.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-28">Mar 28, 2026</time>
+          <span class="dot"></span>
+          <span>14 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="blog-post.html" class="image-wrap">
+          <img src="images/short-term-rental-craft-interior-design.png" alt="Short-term rental living room with teal accent walls, cognac leather couch, and curated succulent art" loading="lazy">
+          <span class="category-tag">Design Tips</span>
+        </a>
+        <h3><a href="blog-post.html">7 Materials That Actually Survive a Short-Term Rental (After 6 Months of Testing)</a></h3>
+        <p class="excerpt">We tracked every chip, stain, and scuff across a year of back-to-back bookings. Here's what's worth the upgrade and what to avoid.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-22">Mar 22, 2026</time>
+          <span class="dot"></span>
+          <span>9 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="blog-post.html" class="image-wrap">
+          <img src="images/virgin-voyages-cruise-travel-card.jpg" alt="Virgin Voyages Scarlet Lady cruise ship at sunset — adults-only cruise travel planning" loading="lazy">
+          <span class="category-tag">Cruises</span>
+        </a>
+        <h3><a href="blog-post.html">Virgin Voyages vs Royal Caribbean: Which Adults-Only Cruise Is Right for You?</a></h3>
+        <p class="excerpt">A side-by-side comparison of cabins, dining, nightlife, itineraries, and what's actually included in the fare.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-15">Mar 15, 2026</time>
+          <span class="dot"></span>
+          <span>11 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="blog-post.html" class="image-wrap">
+          <img src="images/zion-grand-canyon-national-parks-card.jpg" alt="Zion National Park canyon at sunrise with sandstone walls and green valley below" loading="lazy">
+          <span class="category-tag">Destinations</span>
+        </a>
+        <h3><a href="blog-post.html">How to Plan a Week in Zion &amp; Bryce Without Losing Your Mind</a></h3>
+        <p class="excerpt">Where to stay, how to beat the shuttle lines, and the hikes that are actually worth the hype.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-08">Mar 8, 2026</time>
+          <span class="dot"></span>
+          <span>13 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="blog-post.html" class="image-wrap">
+          <img src="images/str-dining-design-execute-case-study.jpg" alt="Short-term rental dining nook with teal velvet chairs and neon art — Nashville design reveal" loading="lazy">
+          <span class="category-tag">Before &amp; After</span>
+        </a>
+        <h3><a href="blog-post.html">From Tired Rental to Top Earner: A Nashville Living Room Transformation</a></h3>
+        <p class="excerpt">Full budget breakdown, sources, and the design choices that lifted nightly rates by 38% in the first quarter.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-01">Mar 1, 2026</time>
+          <span class="dot"></span>
+          <span>8 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="blog-post.html" class="image-wrap">
+          <img src="images/hawaii-sandals-beach-escape-card.png" alt="Hawaii beach with turquoise waves and distant mountain at golden hour" loading="lazy">
+          <span class="category-tag">Beach Escapes</span>
+        </a>
+        <h3><a href="blog-post.html">The Honest Guide to Sandals Resorts: Which Location Is Actually Worth It?</a></h3>
+        <p class="excerpt">A travel advisor's take on the differences between properties, including which rooms to book and which to skip.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-02-22">Feb 22, 2026</time>
+          <span class="dot"></span>
+          <span>15 min</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h3>Join The Journal</h3>
+    <p>New guides, design sources, and travel insights delivered once a month. No spam — just the things worth saving.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- PAGINATION -->
+  <div class="pagination">
+    <span class="current">1</span>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">→</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <img src="images/cynthia-stays-curated-logo-horizontal.png" alt="Cynthia Stays Curated — Travel and Interior Design" class="footer-logo-img" loading="lazy">
+    </div>
+    <div class="footer-content">
+      <div class="footer-social">
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.82.11v-3.5a6.34 6.34 0 0 0-.82-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.96a8.27 8.27 0 0 0 3.76.92V6.69z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24 18.635 24 24 18.633 24 12.013 24 5.393 18.635 0 12.017 0z"/></svg></a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact-design.html">Free Design Consultation</a></li>
+        <li><a href="contact-travel.html">Free Travel Quote</a></li>
+      </ul>
+      <ul class="footer-links">
+        <li><a href="#">Accessibility Statement</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Cynthia Stays Curated</p></div>
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+    menuBtn.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    function closeMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+    menuClose.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-menu-links a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+
+    // Category pills
+    document.querySelectorAll('.pill').forEach(p => {
+      p.addEventListener('click', () => {
+        document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up, .post-card').forEach(el => observer.observe(el));
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      alert('Thanks for subscribing! Check your inbox to confirm.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

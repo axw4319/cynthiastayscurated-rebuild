@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://cynthiastayscurated.com/</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://cynthiastayscurated.com/images/disney-world-cinderella-castle-hero.png</image:loc>
+      <image:title>Curated Travel — Walt Disney World Cinderella Castle</image:title>
+      <image:caption>Cinderella Castle at Walt Disney World Magic Kingdom — Disney vacation planning by a travel advisor</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://cynthiastayscurated.com/images/elevated-rental-living-room-hero.png</image:loc>
+      <image:title>Elevated Spaces — Short-Term Rental Living Room Design</image:title>
+      <image:caption>Designed short-term rental living room with teal accent wall and cognac leather chair</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://cynthiastayscurated.com/images/cynthia-travel-advisor-str-designer.jpg</image:loc>
+      <image:title>Cynthia — Travel Advisor and Short-Term Rental Designer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://cynthiastayscurated.com/images/str-bedroom-design-vision-case-study.jpg</image:loc>
+      <image:title>STR Design Vision — Bedroom with Custom Headboard</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://cynthiastayscurated.com/images/short-term-rental-craft-interior-design.png</image:loc>
+      <image:title>STR Design Craft — Living Room with Leather Sofa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://cynthiastayscurated.com/images/str-dining-design-execute-case-study.jpg</image:loc>
+      <image:title>STR Design Execute — Dining Nook with Velvet Chairs</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://cynthiastayscurated.com/blog.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://cynthiastayscurated.com/contact-travel.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cynthiastayscurated.com/images/free-travel-quote-hero-beach.jpg</image:loc>
+      <image:title>Free Travel Quote — Sandy Beach</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://cynthiastayscurated.com/contact-design.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cynthiastayscurated.com/images/interior-design-consultation-hero.jpg</image:loc>
+      <image:title>Free Interior Design Consultation — Short-Term Rental</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog posts will be added here as individual posts go live -->
+
+  <url>
+    <loc>https://cynthiastayscurated.com/accessibility-statement.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://cynthiastayscurated.com/privacy-policy.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
