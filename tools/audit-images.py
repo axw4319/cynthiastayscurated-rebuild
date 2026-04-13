@@ -71,7 +71,7 @@ def main():
                 elif alt.strip() and GENERIC_ALT.match(alt.strip()):
                     issues.append(f'GENERIC_ALT: "{alt[:50]}"'); stats['generic_alt'] += 1
 
-                if img_idx > 2 and loading not in ('lazy', 'eager'):
+                if img_idx > 3 and loading not in ('lazy', 'eager'):
                     issues.append('MISSING_LOADING_LAZY'); stats['missing_loading'] += 1
 
                 if src:

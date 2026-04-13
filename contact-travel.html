@@ -195,6 +195,7 @@
       margin-top: 0;
     }
 
+    .page-hero picture { display: contents; }
     .page-hero img {
       position: absolute;
       inset: 0;
@@ -599,7 +600,7 @@
   </nav>
 
   <div class="page-hero">
-    <picture><source srcset="images/free-travel-quote-hero-beach.webp" type="image/webp"><img src="images/free-travel-quote-hero-beach.jpg" alt="Sandy beach with gentle waves — free travel quote for Disney, cruises, national parks, and beach escapes" loading="lazy"></picture>
+    <picture><source srcset="images/free-travel-quote-hero-beach.webp" type="image/webp"><img src="images/free-travel-quote-hero-beach.jpg" alt="Sandy beach with gentle waves — free travel quote for Disney, cruises, national parks, and beach escapes" loading="eager" fetchpriority="high"></picture>
   </div>
 
   <div class="content-wrap">
