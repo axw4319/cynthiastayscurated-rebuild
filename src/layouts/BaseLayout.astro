@@ -1,0 +1,465 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogUrl?: string;
+  ogType?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  schema?: string;
+  bodyClass?: string;
+  extraHead?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogTitle,
+  ogDescription,
+  ogImage = 'https://cynthiastayscurated.com/images/disney-world-cinderella-castle-hero.png',
+  ogUrl,
+  ogType = 'website',
+  twitterTitle,
+  twitterDescription,
+  schema,
+  bodyClass,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1c3939">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={ogType}>
+  <meta property="og:url" content={ogUrl || canonical}>
+  <meta property="og:title" content={ogTitle || title}>
+  <meta property="og:description" content={ogDescription || description}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:site_name" content="Cynthia Stays Curated">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={twitterTitle || ogTitle || title}>
+  <meta name="twitter:description" content={twitterDescription || ogDescription || description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD schema (page-specific) -->
+  {schema && <Fragment set:html={`<script type="application/ld+json">${schema}</script>`} />}
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3JQMEM8T2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z3JQMEM8T2');
+  </script>
+
+  <style is:global>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #f8f6f2;
+      --cream-alt: #f4f1ec;
+      --teal-dark: #1c3939;
+      --teal: #2d6a6a;
+      --teal-footer: #2a6363;
+      --coral: rgba(225, 140, 132, 0.9);
+      --coral-solid: #e18c84;
+      --blue-teal: rgba(78, 152, 180, 0.9);
+      --gold: #e1a75c;
+      --border-gray: #d4d0ca;
+      --font-heading: 'Bodoni Moda', 'Bodoni MT', 'Didot', serif;
+      --font-display: 'Bodoni Moda', 'Bodoni MT', 'Didot', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--teal-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: transparent;
+      transition: background 0.35s ease, padding 0.35s ease, height 0.35s ease;
+    }
+
+    .header.scrolled {
+      background: rgba(28, 57, 57, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+      padding: 8px 40px;
+    }
+
+    .header-logo {
+      height: auto;
+      transition: opacity 0.3s ease;
+    }
+
+    .header-logo--stacked {
+      width: 180px;
+    }
+
+    .header-logo--horizontal {
+      width: 280px;
+      display: none;
+    }
+
+    .header.scrolled .header-logo--stacked { display: none; }
+    .header.scrolled .header-logo--horizontal { display: block; }
+
+    .menu-btn {
+      background: #e1a75c;
+      border: none;
+      padding: 10px 34px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 23px;
+      font-weight: 400;
+      color: var(--cream);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 145px;
+      height: 49px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-btn:hover {
+      background: #c9934e;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(225, 167, 92, 0.35);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--teal-footer);
+      color: var(--cream);
+      padding: 60px 60px 30px;
+    }
+
+    .footer-top {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(248, 246, 242, 0.18);
+    }
+
+    .footer-logo-img {
+      height: 70px;
+      width: auto;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(248, 246, 242, 0.95);
+      border-radius: 50%;
+      color: var(--teal-footer);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .footer-social a:hover {
+      background: #fff;
+      transform: translateY(-2px);
+    }
+
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 14px; }
+
+    .footer-links a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      opacity: 0.88;
+      transition: opacity 0.3s;
+    }
+
+    .footer-links a:hover { opacity: 1; }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* ===== CHAT BUTTON (hidden) ===== */
+    .chat-btn { display: none; }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--teal-footer);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 32px;
+      right: 40px;
+      background: var(--cream);
+      border: none;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 22px;
+      color: var(--teal-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu-close:hover { transform: rotate(90deg); }
+
+    .mobile-menu-links {
+      list-style: none;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      padding: 0 40px;
+    }
+
+    .mobile-menu-links li {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(248, 246, 242, 0.2);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .mobile-menu-links li:last-child { border-bottom: none; }
+
+    .mobile-menu.open .mobile-menu-links li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu.open .mobile-menu-links li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(2) { transition-delay: 0.25s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(3) { transition-delay: 0.35s; }
+
+    .mobile-menu-links a {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .mobile-menu-links a:hover { opacity: 0.7; }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .header { padding: 14px 20px; }
+      .header.scrolled { padding: 10px 20px; }
+      .header-logo--stacked { width: 140px; }
+      .header.scrolled .header-logo--horizontal { width: 200px; }
+
+      .footer { padding: 50px 24px 30px; }
+      .footer-content { grid-template-columns: 1fr; gap: 36px; }
+      .footer-logo-img { height: 55px; }
+
+      .mobile-menu-close { top: 24px; right: 24px; width: 46px; height: 46px; }
+    }
+
+    @media (max-width: 480px) {
+      .mobile-menu-links { padding: 0 24px; }
+      .mobile-menu-links li { padding: 18px 0; }
+    }
+  </style>
+</head>
+<body class={bodyClass}>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <a href="/" aria-label="Cynthia Stays Curated — Home">
+      <img src="/images/cynthia-stays-curated-logo.png" alt="Cynthia Stays Curated — Travel Advisor and Short-Term Rental Designer logo" class="header-logo header-logo--stacked">
+      <img src="/images/cynthia-stays-curated-logo-horizontal.png" alt="Cynthia Stays Curated — Travel Advisor and Short-Term Rental Designer logo" class="header-logo header-logo--horizontal">
+    </a>
+    <button class="menu-btn" id="menuBtn">+Menu</button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">&times;</button>
+    <ul class="mobile-menu-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/contact-design">Free Design Consultation</a></li>
+      <li><a href="/contact-travel">Free Travel Quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <slot />
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <img src="/images/cynthia-stays-curated-logo-horizontal.png" alt="Cynthia Stays Curated — Travel and Interior Design" class="footer-logo-img" loading="lazy">
+    </div>
+    <div class="footer-content">
+      <div class="footer-social">
+        <a href="https://www.tiktok.com/@cynthiastayscurated" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.82.11v-3.5a6.34 6.34 0 0 0-.82-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.96a8.27 8.27 0 0 0 3.76.92V6.69z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/cynthiastayscurated/" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="https://in.pinterest.com/cynthiastayscurated/" aria-label="Pinterest">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24 18.635 24 24 18.633 24 12.013 24 5.393 18.635 0 12.017 0z"/></svg>
+        </a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact-design">Free Design Consultation</a></li>
+        <li><a href="/contact-travel">Free Travel Quote</a></li>
+      </ul>
+      <ul class="footer-links">
+        <li><a href="/accessibility-statement">Accessibility Statement</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cynthia Stays Curated</p>
+    </div>
+  </footer>
+
+  <!-- CHAT -->
+  <button class="chat-btn" onclick="window.location.href='/contact-design'">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    Let's Chat!
+  </button>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuClose.addEventListener('click', closeMenu);
+
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    });
+
+    // Scroll animations with IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

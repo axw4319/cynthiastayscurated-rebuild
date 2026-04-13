@@ -1,0 +1,660 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Free Travel Quote",
+      "url": "https://cynthiastayscurated.com/contact-travel",
+      "provider": {
+        "@type": "Organization",
+        "name": "Cynthia Stays Curated",
+        "url": "https://cynthiastayscurated.com/"
+      },
+      "serviceType": "Travel Planning",
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "description": "Custom travel quotes for Disney, Universal, cruises, national parks, beach escapes, and metropolitan getaways. First quote plus 2 revisions complimentary.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Complimentary first quote and up to 2 revisions."
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cynthiastayscurated.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Travel Quote", "item": "https://cynthiastayscurated.com/contact-travel" }
+      ]
+    },
+    {
+      "@type": "ContactPage",
+      "url": "https://cynthiastayscurated.com/contact-travel",
+      "name": "Free Travel Quote Request"
+    }
+  ]
+});
+---
+
+<BaseLayout
+  title="Free Travel Quote | Disney, Cruises & More | CSC"
+  description="Request a free custom travel quote from Cynthia — a travel advisor specializing in Disney, Universal, cruises, national parks, beach resorts, and more."
+  canonical="https://cynthiastayscurated.com/contact-travel"
+  ogTitle="Free Travel Quote | Cynthia Stays Curated"
+  ogDescription="Request a free, custom travel quote for Disney, cruises, national parks, and more."
+  ogImage="https://cynthiastayscurated.com/images/free-travel-quote-hero-beach.jpg"
+  twitterTitle="Free Travel Quote | Cynthia Stays Curated"
+  twitterDescription="Request a free, custom travel quote."
+  schema={schema}
+>
+
+  <div class="page-hero">
+    <picture><source srcset="/images/free-travel-quote-hero-beach.webp" type="image/webp"><img src="/images/free-travel-quote-hero-beach.jpg" alt="Sandy beach with gentle waves — free travel quote for Disney, cruises, national parks, and beach escapes" loading="eager" fetchpriority="high"></picture>
+  </div>
+
+  <div class="content-wrap">
+    <div class="info-card fade-up">
+
+      <!-- LEFT COLUMN -->
+      <div class="info-left">
+        <h1>Free Travel Quote</h1>
+        <p class="info-lead">Please fill out the form to let us know more about your travel needs. If you have any questions prior to filling it out please email us at <a href="mailto:cynthiastayscurated@gmail.com">cynthiastayscurated@gmail.com</a></p>
+
+        <div class="info-sections">
+          <div class="info-block">
+            <h2>Important Notes</h2>
+            <p>This form is best for travelers who are ready to move forward and plan to book within the next 7&ndash;10 business days&mdash;so we can give your trip the attention it deserves.</p>
+          </div>
+
+          <div class="info-block">
+            <h2>Trip Quotes</h2>
+            <p>Your first quote + up to 2 revisions are complimentary.</p>
+            <p>Additional quotes or revisions (4th and beyond) will incur a $75 planning fee per request.</p>
+            <p>(Changes like new dates, switching resorts, or exploring a new destination.)</p>
+          </div>
+
+          <div class="info-block">
+            <h2>Office Hours</h2>
+            <p>Monday&ndash;Thursday: 9:00 AM &ndash; 6:00 PM CST</p>
+            <p>Friday: 9:00 AM &ndash; 12:00 PM CST</p>
+            <p>Weekends: recharging</p>
+          </div>
+
+          <div class="info-block">
+            <h2>Turnaround Time</h2>
+            <p>Proposals are delivered within 1&ndash;3 business days.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: full trip quote form -->
+      <div class="tq">
+        <form id="quoteForm" novalidate>
+          <div class="section">
+            <div class="section-label">Your information</div>
+            <div class="row">
+              <div class="field" id="f-fname"><label>First name <span class="req">*</span></label><input type="text" name="firstName" placeholder="Jane" required /><div class="error-msg">Please enter your first name.</div></div>
+              <div class="field"><label>Middle name</label><input type="text" name="middleName" placeholder="Lee" /></div>
+            </div>
+            <div class="field" id="f-lname"><label>Last name <span class="req">*</span></label><input type="text" name="lastName" placeholder="Smith" required /><div class="error-msg">Please enter your last name.</div></div>
+            <div class="field" id="f-dob-booker"><label>Date of birth <span class="req">*</span></label><input type="date" name="bookerDOB" required /><div class="error-msg">Please enter your date of birth.</div></div>
+            <div class="row">
+              <div class="field" id="f-email"><label>Email address <span class="req">*</span></label><input type="email" name="email" placeholder="jane@example.com" required /><div class="error-msg">Please enter a valid email.</div></div>
+              <div class="field"><label>Phone number</label><input type="tel" name="phone" placeholder="(555) 000-0000" /></div>
+            </div>
+            <div class="field" id="f-addr1"><label>Street address <span class="req">*</span></label><input type="text" name="address1" placeholder="123 Main St" required /><div class="error-msg">Please enter your street address.</div></div>
+            <div class="field"><label>Apt, suite, unit (optional)</label><input type="text" name="address2" placeholder="Apt 4B" /></div>
+            <div class="row-3">
+              <div class="field" id="f-city"><label>City <span class="req">*</span></label><input type="text" name="city" placeholder="Dallas" required /><div class="error-msg">Required.</div></div>
+              <div class="field" id="f-state"><label>State <span class="req">*</span></label><input type="text" name="state" placeholder="TX" maxlength="2" required /><div class="error-msg">Required.</div></div>
+              <div class="field" id="f-zip"><label>ZIP code <span class="req">*</span></label><input type="text" name="zip" placeholder="75201" maxlength="10" required /><div class="error-msg">Required.</div></div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <div class="section-label">Destination</div>
+            <div class="field" id="f-dest">
+              <label>Where would you like to go? <span class="req">*</span> <span class="hint">(Select all that apply)</span></label>
+              <div class="dest-grid" style="margin-top:8px;">
+                <div class="dest-card" data-dest="parks"><span class="dest-icon">&#x1F3A2;</span><span class="dest-name">Theme parks</span><input type="checkbox" name="dest_parks" /></div>
+                <div class="dest-card" data-dest="cruise"><span class="dest-icon">&#x1F6A2;</span><span class="dest-name">Cruise</span><input type="checkbox" name="dest_cruise" /></div>
+                <div class="dest-card" data-dest="sandals"><span class="dest-icon">&#x1F334;</span><span class="dest-name">Sandals all-inclusive</span><input type="checkbox" name="dest_sandals" /></div>
+                <div class="dest-card" data-dest="beach"><span class="dest-icon">&#x1F3D6;&#xFE0F;</span><span class="dest-name">Beach destination</span><input type="checkbox" name="dest_beach" /></div>
+                <div class="dest-card" data-dest="national"><span class="dest-icon">&#x26F0;&#xFE0F;</span><span class="dest-name">National park</span><input type="checkbox" name="dest_national" /></div>
+                <div class="dest-card" data-dest="city"><span class="dest-icon">&#x1F3D9;&#xFE0F;</span><span class="dest-name">City getaway</span><input type="checkbox" name="dest_city" /></div>
+              </div>
+              <div class="error-msg" id="dest-err">Please select at least one destination.</div>
+            </div>
+
+            <div class="conditional" id="cond-parks">
+              <div class="sub-label">Which park(s)? <span class="hint">(Select all that apply)</span></div>
+              <div class="sub-checks">
+                <label class="sub-check" id="sc-dw"><input type="checkbox" name="park_dw" id="cb-dw" /> Disney World</label>
+                <label class="sub-check" id="sc-dl"><input type="checkbox" name="park_dl" id="cb-dl" /> Disneyland</label>
+                <label class="sub-check"><input type="checkbox" name="park_dlp" /> Disneyland Paris</label>
+                <label class="sub-check"><input type="checkbox" name="park_uor" /> Universal Orlando</label>
+                <label class="sub-check"><input type="checkbox" name="park_uoh" /> Universal Hollywood</label>
+                <label class="sub-check"><input type="checkbox" name="park_hershey" /> Hersheypark</label>
+                <label class="sub-check"><input type="checkbox" name="park_legoca" /> Legoland California</label>
+                <label class="sub-check"><input type="checkbox" name="park_legofl" /> Legoland Florida</label>
+              </div>
+              <div class="field"><label>Other park(s)</label><input type="text" name="parkOther" placeholder="e.g. Busch Gardens, Six Flags, SeaWorld..." /></div>
+
+              <div class="conditional resort-block" id="cond-dw-resort">
+                <div class="resort-block-title">Disney World &mdash; hotel preference</div>
+                <div class="field"><label>Resort tier</label><select name="dwResortTier" id="dwResortTier"><option value="">Select tier or no preference</option><option value="no_pref">No preference</option><option value="good_neighbor">Good neighbor hotel</option><option value="value">Value resort</option><option value="moderate">Moderate resort</option><option value="deluxe">Deluxe resort</option><option value="deluxe_villa">Deluxe villa</option></select></div>
+                <div class="conditional" id="cond-dw-good-neighbor"><div class="field"><label>Good neighbor hotel preference</label><select name="dwGoodNeighbor"><option value="">No preference</option><option>Disney Springs area hotels</option><option>Hotel Plaza Blvd hotels</option></select></div></div>
+                <div class="conditional" id="cond-dw-value"><div class="field"><label>Value resort preference</label><select name="dwValueResort"><option value="">No preference</option><option>All-Star Movies</option><option>All-Star Music</option><option>All-Star Sports</option><option>Art of Animation</option><option>Pop Century</option></select></div></div>
+                <div class="conditional" id="cond-dw-moderate"><div class="field"><label>Moderate resort preference</label><select name="dwModerateResort"><option value="">No preference</option><option>Caribbean Beach</option><option>Coronado Springs</option><option>Fort Wilderness Cabins</option><option>Port Orleans &mdash; French Quarter</option><option>Port Orleans &mdash; Riverside</option></select></div></div>
+                <div class="conditional" id="cond-dw-deluxe"><div class="field"><label>Deluxe resort preference</label><select name="dwDeluxeResort"><option value="">No preference</option><option>Animal Kingdom Lodge</option><option>Beach Club</option><option>BoardWalk Inn</option><option>Contemporary / Bay Lake Tower</option><option>Grand Floridian</option><option>Polynesian Village</option><option>Wilderness Lodge</option><option>Yacht Club</option></select></div></div>
+                <div class="conditional" id="cond-dw-deluxe-villa"><div class="field"><label>Deluxe villa preference</label><select name="dwDeluxeVilla"><option value="">No preference</option><option>Animal Kingdom Villas &mdash; Kidani / Jambo</option><option>Bay Lake Tower at Contemporary</option><option>Beach Club Villas</option><option>BoardWalk Villas</option><option>Boulder Ridge / Copper Creek Villas (Wilderness Lodge)</option><option>Grand Floridian Villas</option><option>Old Key West</option><option>Polynesian Villas &amp; Bungalows</option><option>Riviera Resort</option><option>Saratoga Springs</option></select></div></div>
+              </div>
+
+              <div class="conditional resort-block" id="cond-dl-resort">
+                <div class="resort-block-title">Disneyland &mdash; hotel preference</div>
+                <div class="field"><label>Hotel category</label><select name="dlResortTier" id="dlResortTier"><option value="">Select category or no preference</option><option value="no_pref">No preference</option><option value="good_neighbor_dl">Good neighbor hotel</option><option value="disney_owned">Disney-owned hotel</option></select></div>
+                <div class="conditional" id="cond-dl-good-neighbor"><div class="field"><label>Good neighbor hotel preference</label><select name="dlGoodNeighbor"><option value="">No preference</option><option>Anaheim Majestic Garden Hotel</option><option>Best Western Plus Park Place Inn</option><option>Cambria Hotel Anaheim Resort</option><option>Camelot Inn &amp; Suites</option><option>Castle Inn &amp; Suites</option></select></div></div>
+                <div class="conditional" id="cond-dl-disney-owned"><div class="field"><label>Disney-owned hotel preference</label><select name="dlDisneyOwned"><option value="">No preference</option><option>Disneyland Hotel</option><option>Disney's Grand Californian Hotel &amp; Spa</option><option>Disney's Paradise Pier Hotel</option></select></div></div>
+              </div>
+
+              <div class="field" style="margin-top:0.5rem;"><label>Resort stay preference (other parks)</label><select name="parkResort"><option value="">Select preference</option><option>Yes &mdash; on-site resort</option><option>Yes &mdash; off-site hotel</option><option>Not sure</option></select></div>
+            </div>
+
+            <div class="conditional" id="cond-cruise">
+              <div class="sub-label">Cruise preferences</div>
+              <div class="row">
+                <div class="field"><label>Preferred cruise line</label><select name="cruiseLine"><option value="">Select or leave open</option><option>Royal Caribbean</option><option>Carnival</option><option>Norwegian</option><option>Disney Cruise Line</option><option>Celebrity</option><option>Princess</option><option>MSC</option><option>No preference</option></select></div>
+                <div class="field"><label>Cruise region</label><select name="cruiseRegion"><option value="">Select region</option><option>Caribbean</option><option>Mediterranean</option><option>Alaska</option><option>Bahamas</option><option>Mexico / Pacific</option><option>Not sure</option></select></div>
+              </div>
+              <div class="field"><label>Cabin preference</label><select name="cabinType"><option value="">Select cabin type</option><option>Interior</option><option>Ocean view</option><option>Balcony</option><option>Suite</option><option>No preference</option></select></div>
+              <div class="field"><label>Other cruise preferences</label><input type="text" name="cruiseOther" placeholder="e.g. specific ship, port, itinerary length..." /></div>
+            </div>
+
+            <div class="conditional" id="cond-sandals">
+              <div class="sub-label">Sandals preferences</div>
+              <div class="row">
+                <div class="field"><label>Preferred location</label><select name="sandalsLocation"><option value="">Select or leave open</option><option>Jamaica</option><option>Bahamas</option><option>Barbados</option><option>St. Lucia</option><option>Antigua</option><option>Turks &amp; Caicos</option><option>Grenada</option><option>No preference</option></select></div>
+                <div class="field"><label>Room category</label><select name="sandalsRoom"><option value="">Select preference</option><option>Garden / Beachside room</option><option>Oceanfront room</option><option>Butler suite</option><option>Overwater bungalow</option><option>No preference</option></select></div>
+              </div>
+            </div>
+
+            <div class="conditional" id="cond-beach">
+              <div class="sub-label">Beach destination preferences</div>
+              <div class="sub-checks">
+                <label class="sub-check"><input type="checkbox" name="beach_cancun" /> Cancun</label>
+                <label class="sub-check"><input type="checkbox" name="beach_punta" /> Punta Cana</label>
+                <label class="sub-check"><input type="checkbox" name="beach_cabo" /> Los Cabos</label>
+                <label class="sub-check"><input type="checkbox" name="beach_riviera" /> Riviera Maya</label>
+                <label class="sub-check"><input type="checkbox" name="beach_bahamas" /> Bahamas</label>
+                <label class="sub-check"><input type="checkbox" name="beach_hawaii" /> Hawaii</label>
+                <label class="sub-check"><input type="checkbox" name="beach_maldives" /> Maldives</label>
+              </div>
+              <div class="field"><label>Other beach destination(s)</label><input type="text" name="beachOther" placeholder="e.g. Turks &amp; Caicos, Bali, Costa Rica..." /></div>
+            </div>
+
+            <div class="conditional" id="cond-national">
+              <div class="sub-label">National park preferences</div>
+              <div class="sub-checks">
+                <label class="sub-check"><input type="checkbox" name="np_gc" /> Grand Canyon</label>
+                <label class="sub-check"><input type="checkbox" name="np_ys" /> Yellowstone</label>
+                <label class="sub-check"><input type="checkbox" name="np_zion" /> Zion</label>
+                <label class="sub-check"><input type="checkbox" name="np_yos" /> Yosemite</label>
+                <label class="sub-check"><input type="checkbox" name="np_bryce" /> Bryce Canyon</label>
+                <label class="sub-check"><input type="checkbox" name="np_glacier" /> Glacier</label>
+                <label class="sub-check"><input type="checkbox" name="np_smoky" /> Great Smoky Mountains</label>
+                <label class="sub-check"><input type="checkbox" name="np_rocky" /> Rocky Mountain</label>
+              </div>
+              <div class="field"><label>Other park(s)</label><input type="text" name="nationalOther" placeholder="e.g. Arches, Acadia, Olympic..." /></div>
+              <div class="field"><label>Lodging preference</label><select name="nationalLodging"><option value="">Select preference</option><option>Park lodge / in-park hotel</option><option>Nearby hotel / resort</option><option>Camping / glamping</option><option>No preference</option></select></div>
+            </div>
+
+            <div class="conditional" id="cond-city">
+              <div class="sub-label">Which city or cities? <span class="hint">(Select all that apply)</span></div>
+              <div class="sub-checks">
+                <label class="sub-check"><input type="checkbox" name="city_nashville" /> Nashville</label>
+                <label class="sub-check"><input type="checkbox" name="city_scottsdale" /> Scottsdale</label>
+                <label class="sub-check"><input type="checkbox" name="city_nyc" /> New York City</label>
+                <label class="sub-check"><input type="checkbox" name="city_chicago" /> Chicago</label>
+                <label class="sub-check"><input type="checkbox" name="city_nola" /> New Orleans</label>
+                <label class="sub-check"><input type="checkbox" name="city_vegas" /> Las Vegas</label>
+                <label class="sub-check"><input type="checkbox" name="city_savannah" /> Savannah</label>
+                <label class="sub-check"><input type="checkbox" name="city_charleston" /> Charleston</label>
+                <label class="sub-check"><input type="checkbox" name="city_denver" /> Denver</label>
+                <label class="sub-check"><input type="checkbox" name="city_seattle" /> Seattle</label>
+              </div>
+              <div class="field"><label>Other city or cities</label><input type="text" name="cityOther" placeholder="e.g. Austin, San Francisco, Miami..." /></div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <div class="section-label">Travel details</div>
+            <div class="row">
+              <div class="field" id="f-depart"><label>Departure date <span class="req">*</span></label><input type="date" name="departDate" required /><div class="error-msg">Please select a departure date.</div></div>
+              <div class="field"><label>Return date</label><input type="date" name="returnDate" /></div>
+            </div>
+            <div class="field"><label>How flexible are your dates?</label><select name="flexibility"><option value="">Select flexibility</option><option>Exact dates only</option><option>+/- 1&ndash;2 days</option><option>+/- 1 week</option><option>Very flexible &mdash; show me best options</option></select></div>
+            <div class="row">
+              <div class="field" id="f-depart-city"><label>Departing from <span class="req">*</span></label><input type="text" name="departCity" placeholder="City or airport" required /><div class="error-msg">Please enter your departure city.</div></div>
+              <div class="field"><label>Trip length (nights)</label><input type="number" name="nights" min="1" max="60" placeholder="e.g. 7" /></div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <div class="section-label">Travelers</div>
+            <div class="row" style="margin-bottom:1.25rem;">
+              <div class="field" id="f-adults" style="margin-bottom:0;"><label>Adults (18+) <span class="req">*</span></label><input type="number" name="adultCount" min="1" max="20" value="1" placeholder="1" id="adultCount" required /><div class="error-msg">At least 1 adult required.</div></div>
+              <div class="field" style="margin-bottom:0;"><label>Children (under 18)</label><input type="number" name="childCount" min="0" max="20" placeholder="0" id="childCount" /></div>
+            </div>
+            <div class="field"><label>Infants (under 2)</label><input type="number" name="infantCount" min="0" max="10" placeholder="0" id="infantCount" /></div>
+            <div id="travelerProfiles"></div>
+            <div class="field" style="margin-top:0.5rem;"><label>Celebrating anything special?</label><select name="occasion"><option value="">Select occasion (optional)</option><option>Honeymoon</option><option>Anniversary</option><option>Birthday</option><option>Family reunion</option><option>Graduation</option><option>Babymoon</option><option>Just a vacation</option><option>Other</option></select></div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <div class="section-label">Budget &amp; preferences</div>
+            <div class="row">
+              <div class="field"><label>Estimated budget (per person)</label><select name="budget"><option value="">Select budget range</option><option>Under $1,000</option><option>$1,000 &ndash; $2,500</option><option>$2,500 &ndash; $5,000</option><option>$5,000 &ndash; $10,000</option><option>$10,000+</option><option>Prefer not to say</option></select></div>
+              <div class="field"><label>Travel insurance interest</label><select name="insurance"><option value="">Select preference</option><option>Yes &mdash; please include</option><option>No &mdash; not interested</option><option>I'd like more info</option></select></div>
+            </div>
+            <div class="field"><label>How did you hear about us?</label><select name="referral"><option value="">Select source</option><option>Friend or family referral</option><option>Google search</option><option>Instagram / Facebook</option><option>Returning client</option><option>Other</option></select></div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <div class="section-label">Anything else?</div>
+            <div class="field"><label>Additional notes, requests, or questions</label><textarea name="notes" rows="4" placeholder="Dietary restrictions, accessibility needs, must-have experiences, past travel, etc."></textarea></div>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="submit-btn" id="submitBtn">Submit request</button>
+          </div>
+
+          <div class="submit-error" id="submitError">Something went wrong submitting your request. Please try again or email us directly.</div>
+        </form>
+
+        <div class="success-box" id="successBox">
+          <p><strong>Thank you!</strong></p>
+          <p style="margin-top:8px;">If we have additional questions, we'll reach out within 1 business day.<br>Your customized quote will be delivered within 1&ndash;3 business days.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  /* PAGE HERO */
+  .page-hero {
+    position: relative;
+    height: 460px;
+    overflow: hidden;
+    margin-top: 0;
+  }
+
+  .page-hero picture { display: contents; }
+  .page-hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.1);
+  }
+
+  /* CONTENT WRAPPER */
+  .content-wrap {
+    max-width: 1200px;
+    margin: -180px auto 0;
+    padding: 0 40px 80px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .info-card {
+    background: var(--cream);
+    padding: 70px 80px;
+    box-shadow: 0 30px 80px rgba(28, 57, 57, 0.08);
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .info-left h1 {
+    font-family: var(--font-heading);
+    font-size: 54px;
+    font-weight: 400;
+    color: var(--teal-dark);
+    letter-spacing: -2px;
+    line-height: 1.05;
+    margin-bottom: 22px;
+  }
+
+  .info-left .info-lead {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--teal-dark);
+    margin-bottom: 36px;
+  }
+
+  .info-left .info-lead a {
+    color: var(--teal-dark);
+    text-decoration: underline;
+  }
+
+  .info-left .info-lead a:hover { color: var(--teal); }
+
+  .info-sections {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(28, 57, 57, 0.12);
+  }
+
+  .info-block h2 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+
+  .info-block p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+
+  .info-block a { color: var(--teal-dark); text-decoration: underline; }
+  .info-block a:hover { color: var(--teal); }
+
+  /* FORM */
+  .tq .section { margin-bottom: 2rem; }
+  .tq .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--teal); text-transform: uppercase; margin-bottom: 1rem; }
+  .tq .field { margin-bottom: 1.25rem; }
+  .tq .field label { display: block; font-size: 13px; font-weight: 500; color: var(--teal-dark); margin-bottom: 5px; }
+  .tq .field label .req { color: var(--coral-solid); margin-left: 2px; }
+  .tq .field label .hint { font-size: 11px; color: #6b8a8a; font-weight: 400; }
+  .tq .field input, .tq .field select, .tq .field textarea {
+    width: 100%; padding: 10px 12px; font-size: 14px; font-family: var(--font-body);
+    background: #fff; border: 1px solid #d4d0ca; border-radius: 6px;
+    color: var(--teal-dark); transition: border-color 0.15s;
+  }
+  .tq .field input:focus, .tq .field select:focus, .tq .field textarea:focus {
+    outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(45,106,106,0.08);
+  }
+  .tq .field input::placeholder, .tq .field textarea::placeholder { color: #aaa; }
+  .tq .field textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+  .tq .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231c3939' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px;
+  }
+  .tq .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tq .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .tq .dest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; }
+  .tq .dest-card {
+    border: 1px solid #e5e1db; border-radius: 6px; padding: 10px 12px;
+    cursor: pointer; transition: border-color 0.15s, background 0.15s;
+    display: flex; align-items: center; gap: 8px; background: #fff;
+  }
+  .tq .dest-card:hover { border-color: var(--teal); }
+  .tq .dest-card.selected { border-color: var(--teal); background: rgba(45,106,106,0.05); }
+  .tq .dest-card input[type=checkbox] { width: 14px; height: 14px; accent-color: var(--teal); flex-shrink: 0; margin-left: auto; }
+  .tq .dest-card .dest-name { font-size: 13px; color: var(--teal-dark); }
+  .tq .dest-card .dest-icon { font-size: 16px; flex-shrink: 0; }
+  .tq .sub-checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; margin-top: 8px; margin-bottom: 1.25rem; }
+  .tq .sub-check {
+    display: flex; align-items: center; gap: 8px; padding: 8px 10px;
+    border: 1px solid #e5e1db; border-radius: 6px; cursor: pointer;
+    font-size: 13px; color: var(--teal-dark); background: #fff;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .tq .sub-check:hover { border-color: var(--teal); }
+  .tq .sub-check input[type=checkbox] { width: 13px; height: 13px; accent-color: var(--teal); flex-shrink: 0; }
+  .tq .sub-check.checked { border-color: var(--teal); background: rgba(45,106,106,0.05); }
+  .tq .conditional { display: none; }
+  .tq .conditional.visible { display: block; }
+  .tq .divider { height: 1px; background: #e5e1db; margin: 2rem 0; }
+  .tq .sub-label { font-size: 12px; font-weight: 500; color: var(--teal-dark); margin-bottom: 6px; }
+  .tq .resort-block {
+    background: rgba(45,106,106,0.03); border-radius: 8px; padding: 14px 16px;
+    margin-bottom: 1rem; border: 1px solid #e5e1db;
+  }
+  .tq .resort-block-title { font-size: 12px; font-weight: 600; color: var(--teal); margin-bottom: 10px; }
+  .tq .resort-block .field { margin-bottom: 8px; }
+  .tq .resort-block .field:last-child { margin-bottom: 0; }
+  .tq .resort-block label { font-size: 12px; }
+  .tq .resort-block select { font-size: 13px; padding: 8px 10px; }
+  .tq .traveler-card {
+    border: 1px solid #e5e1db; border-radius: 8px; padding: 1rem 1.25rem;
+    margin-bottom: 12px; background: #fff;
+  }
+  .tq .traveler-card-header { font-size: 12px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .tq .traveler-card .row-3 { gap: 10px; }
+  .tq .traveler-card .field { margin-bottom: 10px; }
+  .tq .traveler-card .field:last-child { margin-bottom: 0; }
+  .tq .traveler-card label { font-size: 12px; }
+  .tq .traveler-card input { font-size: 13px; padding: 8px 10px; }
+  .tq .submit-row { display: flex; justify-content: flex-end; margin-top: 2rem; }
+  .tq .submit-btn {
+    background: var(--coral-solid); color: #fff; border: none; padding: 12px 36px;
+    font-size: 14px; font-family: var(--font-body); font-weight: 600;
+    border-radius: 50px; cursor: pointer; letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+  .tq .submit-btn:hover { background: #d47a72; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(225,140,132,0.35); }
+  .tq .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+  .tq .success-box {
+    display: none; background: rgba(45,106,106,0.06); border: 1px solid var(--teal);
+    border-radius: 10px; padding: 2rem; text-align: center; margin-top: 1rem;
+  }
+  .tq .success-box p { color: var(--teal-dark); font-size: 14px; line-height: 1.6; }
+  .tq .success-box strong { font-family: var(--font-heading); font-size: 24px; font-weight: 400; display: block; margin-bottom: 6px; }
+  .tq .submit-error {
+    display: none; background: rgba(225,140,132,0.1); border: 1px solid var(--coral-solid);
+    border-radius: 8px; padding: 1rem; margin-top: 1rem; text-align: center;
+    font-size: 14px; color: var(--teal-dark);
+  }
+  .tq .error-msg { font-size: 12px; color: #d9534f; margin-top: 4px; display: none; }
+  .tq .field.invalid input, .tq .field.invalid select, .tq .field.invalid textarea { border-color: #d9534f; }
+  .tq .field.invalid .error-msg { display: block; }
+
+  @media (max-width: 768px) {
+    .page-hero { height: 300px; }
+    .content-wrap { padding: 0 20px 60px; margin-top: -80px; }
+    .info-card { grid-template-columns: 1fr; padding: 40px 28px; gap: 40px; }
+    .info-left h1 { font-size: 38px; }
+    .info-sections { gap: 24px; padding-top: 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .tq .row, .tq .row-3 { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ===== TRIP QUOTE FORM JS =====
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcNEyUelYQAlhi0FPLp4AWyNOGUBJSPkSjajIp0qjNKadJ_IkLQz5H8Q7AaTSEBKB2/exec';
+  const TODAY = new Date().toISOString().split('T')[0];
+  document.querySelector('[name="bookerDOB"]').max = TODAY;
+
+  const destCards = document.querySelectorAll('.dest-card');
+  destCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const cb = card.querySelector('input[type=checkbox]');
+      cb.checked = !cb.checked;
+      card.classList.toggle('selected', cb.checked);
+      const cond = document.getElementById('cond-' + card.dataset.dest);
+      if (cond) cond.classList.toggle('visible', cb.checked);
+    });
+  });
+
+  document.querySelectorAll('.sub-check').forEach(label => {
+    label.addEventListener('click', () => {
+      const cb = label.querySelector('input[type=checkbox]');
+      setTimeout(() => label.classList.toggle('checked', cb.checked), 0);
+    });
+  });
+
+  document.getElementById('cb-dw').addEventListener('change', function() {
+    document.getElementById('sc-dw').classList.toggle('checked', this.checked);
+    document.getElementById('cond-dw-resort').classList.toggle('visible', this.checked);
+  });
+
+  document.getElementById('cb-dl').addEventListener('change', function() {
+    document.getElementById('sc-dl').classList.toggle('checked', this.checked);
+    document.getElementById('cond-dl-resort').classList.toggle('visible', this.checked);
+  });
+
+  document.getElementById('dwResortTier').addEventListener('change', function() {
+    ['good_neighbor','value','moderate','deluxe','deluxe_villa'].forEach(t => {
+      const el = document.getElementById('cond-dw-' + t.replace('_','-'));
+      if (el) el.classList.toggle('visible', this.value === t);
+    });
+  });
+
+  document.getElementById('dlResortTier').addEventListener('change', function() {
+    document.getElementById('cond-dl-good-neighbor').classList.toggle('visible', this.value === 'good_neighbor_dl');
+    document.getElementById('cond-dl-disney-owned').classList.toggle('visible', this.value === 'disney_owned');
+  });
+
+  function makeTravelerCard(prefix, label, isBooker) {
+    const card = document.createElement('div');
+    card.className = 'traveler-card';
+    card.innerHTML =
+      '<div class="traveler-card-header">' + label + (isBooker ? ' (you)' : '') + '</div>' +
+      '<div class="row-3">' +
+        '<div class="field"><label>First name</label><input type="text" name="' + prefix + '_first" placeholder="First"' + (isBooker ? ' disabled style="opacity:0.5;cursor:not-allowed;"' : '') + ' /></div>' +
+        '<div class="field"><label>Middle name</label><input type="text" name="' + prefix + '_middle" placeholder="Middle"' + (isBooker ? ' disabled style="opacity:0.5;cursor:not-allowed;"' : '') + ' /></div>' +
+        '<div class="field"><label>Last name</label><input type="text" name="' + prefix + '_last" placeholder="Last"' + (isBooker ? ' disabled style="opacity:0.5;cursor:not-allowed;"' : '') + ' /></div>' +
+      '</div>' +
+      (isBooker ? '<div style="font-size:11px;color:#6b8a8a;margin-top:2px;margin-bottom:10px;">Name pre-filled from your information above.</div>' : '') +
+      '<div class="field" style="margin-bottom:0;"><label>Date of birth</label><input type="date" name="' + prefix + '_dob" max="' + TODAY + '" /></div>';
+    return card;
+  }
+
+  function syncBookerName() {
+    var container = document.getElementById('travelerProfiles');
+    var firstCard = container.querySelector('.traveler-card');
+    if (!firstCard) return;
+    var fields = firstCard.querySelectorAll('input[type=text][disabled]');
+    var form = document.getElementById('quoteForm');
+    if (fields.length >= 3) {
+      fields[0].value = form.firstName.value;
+      fields[1].value = form.middleName.value;
+      fields[2].value = form.lastName.value;
+    }
+  }
+
+  function rebuildProfiles() {
+    const adults = Math.max(1, Math.min(20, parseInt(document.getElementById('adultCount').value) || 1));
+    const children = Math.max(0, Math.min(20, parseInt(document.getElementById('childCount').value) || 0));
+    const infants = Math.max(0, Math.min(10, parseInt(document.getElementById('infantCount').value) || 0));
+    const container = document.getElementById('travelerProfiles');
+    container.innerHTML = '';
+    for (var i = 1; i <= adults; i++) container.appendChild(makeTravelerCard('adult_' + i, 'Adult ' + i, i === 1));
+    for (var i = 1; i <= children; i++) container.appendChild(makeTravelerCard('child_' + i, 'Child ' + i, false));
+    for (var i = 1; i <= infants; i++) container.appendChild(makeTravelerCard('infant_' + i, 'Infant ' + i, false));
+    syncBookerName();
+  }
+
+  rebuildProfiles();
+  document.getElementById('adultCount').addEventListener('input', rebuildProfiles);
+  document.getElementById('childCount').addEventListener('input', rebuildProfiles);
+  document.getElementById('infantCount').addEventListener('input', rebuildProfiles);
+
+  ['firstName','middleName','lastName'].forEach(function(name) {
+    var input = document.querySelector('input[name="' + name + '"]');
+    if (input) input.addEventListener('input', syncBookerName);
+  });
+
+  function setInvalid(id, invalid) {
+    var el = document.getElementById(id);
+    if (el) el.classList.toggle('invalid', invalid);
+  }
+
+  function collectFormData(form) {
+    var data = {};
+    var formData = new FormData(form);
+    for (var pair of formData.entries()) { data[pair[0]] = pair[1]; }
+    form.querySelectorAll('input[type=checkbox]').forEach(function(cb) { data[cb.name] = cb.checked ? 'Yes' : ''; });
+    return data;
+  }
+
+  document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var valid = true;
+    var form = e.target;
+    var btn = document.getElementById('submitBtn');
+    var errorBox = document.getElementById('submitError');
+    errorBox.style.display = 'none';
+
+    [['f-fname', form.firstName.value.trim()],['f-lname', form.lastName.value.trim()],['f-dob-booker', form.bookerDOB.value],['f-addr1', form.address1.value.trim()],['f-city', form.city.value.trim()],['f-state', form.state.value.trim()],['f-zip', form.zip.value.trim()]].forEach(function(pair) { setInvalid(pair[0], !pair[1]); if (!pair[1]) valid = false; });
+
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim());
+    setInvalid('f-email', !emailOk); if (!emailOk) valid = false;
+
+    var anyDest = Array.from(destCards).some(function(c) { return c.querySelector('input').checked; });
+    document.getElementById('dest-err').style.display = anyDest ? 'none' : 'block'; if (!anyDest) valid = false;
+
+    if (!form.departDate.value) { setInvalid('f-depart', true); valid = false; } else setInvalid('f-depart', false);
+    if (!form.departCity.value.trim()) { setInvalid('f-depart-city', true); valid = false; } else setInvalid('f-depart-city', false);
+    if ((parseInt(form.adultCount.value) || 0) < 1) { setInvalid('f-adults', true); valid = false; } else setInvalid('f-adults', false);
+
+    if (!valid) {
+      var firstInvalid = document.querySelector('.field.invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      var data = collectFormData(form);
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      });
+      form.style.display = 'none';
+      document.getElementById('successBox').style.display = 'block';
+      document.getElementById('successBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (err) {
+      errorBox.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Submit request';
+    }
+  });
+</script>

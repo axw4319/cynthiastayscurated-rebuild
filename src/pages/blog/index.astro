@@ -1,0 +1,772 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "The Journal — Cynthia Stays Curated",
+  "url": "https://cynthiastayscurated.com/blog",
+  "description": "Travel guides, interior design reveals, and short-term rental hosting insights.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cynthia Stays Curated",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cynthiastayscurated.com/images/cynthia-stays-curated-logo.png"
+    }
+  }
+});
+---
+
+<BaseLayout
+  title="The Journal | Travel + Design Stories | Cynthia Stays Curated"
+  description="Curated travel guides, interior design reveals, and short-term rental hosting insights from Cynthia — travel advisor and STR designer."
+  canonical="https://cynthiastayscurated.com/blog"
+  ogTitle="The Journal | Travel + Interior Design Stories"
+  ogDescription="Curated travel guides, interior design reveals, and short-term rental hosting insights."
+  ogImage="https://cynthiastayscurated.com/images/disney-world-cinderella-castle-hero.png"
+  schema={schema}
+>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> &nbsp;/&nbsp; <span>The Journal</span>
+    </nav>
+    <h1>The Journal</h1>
+    <p class="subtitle">Curated travel guides, design reveals, and the stories behind unforgettable stays.</p>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" placeholder="Search stories, destinations, design tips...">
+    </div>
+
+    <div class="category-pills">
+      <button class="pill active" data-cat="all">All</button>
+      <button class="pill" data-cat="travel">Travel Guides</button>
+      <button class="pill" data-cat="design">Design Reveals</button>
+      <button class="pill" data-cat="hosting">STR Hosting</button>
+      <button class="pill" data-cat="tips">Tips &amp; How-To</button>
+      <button class="pill" data-cat="destinations">Destinations</button>
+    </div>
+  </section>
+
+  <!-- FEATURED POST -->
+  <section class="featured-section fade-up">
+    <span class="featured-label">★ Editor's Pick</span>
+    <article class="featured-card">
+      <a href="/blog" class="image-wrap">
+        <picture><source srcset="images/str-bedroom-design-vision-case-study.webp" type="image/webp"><img src="images/str-bedroom-design-vision-case-study.jpg" alt="Top-booked short-term rental bedroom at Fossil Farmstay in Joshua Tree — custom upholstered headboard, striped pillows, and navy bedding" loading="lazy"></picture>
+        <span class="category-tag">Design Reveal</span>
+      </a>
+      <div>
+        <h2><a href="/blog">Fossil Farmstay: How We Turned a 1,200 sq ft Rental Into a Top 1% Booked Airbnb</a></h2>
+        <p class="excerpt">A full case study on designing, styling, and launching a short-term rental that booked out within 48 hours of going live — including exact sources, paint colors, budget breakdown, and the hosting systems that keep it running.</p>
+        <div class="post-meta">
+          <div class="author">
+            <picture><source srcset="images/cynthia-travel-advisor-str-designer.webp" type="image/webp"><img src="images/cynthia-travel-advisor-str-designer.jpg" alt="Cynthia — travel advisor and short-term rental designer" class="author-avatar" loading="lazy"></picture>
+            <span>Cynthia</span>
+          </div>
+          <span class="dot"></span>
+          <time datetime="2026-04-02">April 2, 2026</time>
+          <span class="dot"></span>
+          <span>12 min read</span>
+        </div>
+        <a href="/blog" class="read-more">
+          Read the Story
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- POST GRID -->
+  <section class="blog-grid-wrap">
+    <h2 class="section-heading">
+      Latest Stories
+      <span class="count">24 articles</span>
+    </h2>
+
+    <div class="post-grid">
+      <article class="post-card">
+        <a href="/blog" class="image-wrap">
+          <picture><source srcset="images/disney-world-travel-advisor-card.webp" type="image/webp"><img src="images/disney-world-travel-advisor-card.jpg" alt="Cinderella Castle at Walt Disney World Magic Kingdom at sunrise" loading="lazy"></picture>
+          <span class="category-tag">Travel Guide</span>
+        </a>
+        <h3><a href="/blog">The Complete 5-Day Walt Disney World Itinerary for First-Time Families</a></h3>
+        <p class="excerpt">Exactly which parks to visit each day, when to book Lightning Lane, and the one mistake we see most first-timers make.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-28">Mar 28, 2026</time>
+          <span class="dot"></span>
+          <span>14 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="/blog" class="image-wrap">
+          <picture><source srcset="images/short-term-rental-craft-interior-design.webp" type="image/webp"><img src="images/short-term-rental-craft-interior-design.jpg" alt="Short-term rental living room with teal accent walls, cognac leather couch, and curated succulent art" loading="lazy"></picture>
+          <span class="category-tag">Design Tips</span>
+        </a>
+        <h3><a href="/blog">7 Materials That Actually Survive a Short-Term Rental (After 6 Months of Testing)</a></h3>
+        <p class="excerpt">We tracked every chip, stain, and scuff across a year of back-to-back bookings. Here's what's worth the upgrade and what to avoid.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-22">Mar 22, 2026</time>
+          <span class="dot"></span>
+          <span>9 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="/blog" class="image-wrap">
+          <picture><source srcset="images/virgin-voyages-cruise-travel-card.webp" type="image/webp"><img src="images/virgin-voyages-cruise-travel-card.jpg" alt="Virgin Voyages Scarlet Lady cruise ship at sunset — adults-only cruise travel planning" loading="lazy"></picture>
+          <span class="category-tag">Cruises</span>
+        </a>
+        <h3><a href="/blog">Virgin Voyages vs Royal Caribbean: Which Adults-Only Cruise Is Right for You?</a></h3>
+        <p class="excerpt">A side-by-side comparison of cabins, dining, nightlife, itineraries, and what's actually included in the fare.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-15">Mar 15, 2026</time>
+          <span class="dot"></span>
+          <span>11 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="/blog" class="image-wrap">
+          <picture><source srcset="images/zion-grand-canyon-national-parks-card.webp" type="image/webp"><img src="images/zion-grand-canyon-national-parks-card.jpg" alt="Zion National Park canyon at sunrise with sandstone walls and green valley below" loading="lazy"></picture>
+          <span class="category-tag">Destinations</span>
+        </a>
+        <h3><a href="/blog">How to Plan a Week in Zion &amp; Bryce Without Losing Your Mind</a></h3>
+        <p class="excerpt">Where to stay, how to beat the shuttle lines, and the hikes that are actually worth the hype.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-08">Mar 8, 2026</time>
+          <span class="dot"></span>
+          <span>13 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="/blog" class="image-wrap">
+          <picture><source srcset="images/str-dining-design-execute-case-study.webp" type="image/webp"><img src="images/str-dining-design-execute-case-study.jpg" alt="Short-term rental dining nook with teal velvet chairs and neon art — Nashville design reveal" loading="lazy"></picture>
+          <span class="category-tag">Before &amp; After</span>
+        </a>
+        <h3><a href="/blog">From Tired Rental to Top Earner: A Nashville Living Room Transformation</a></h3>
+        <p class="excerpt">Full budget breakdown, sources, and the design choices that lifted nightly rates by 38% in the first quarter.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-03-01">Mar 1, 2026</time>
+          <span class="dot"></span>
+          <span>8 min</span>
+        </div>
+      </article>
+
+      <article class="post-card">
+        <a href="/blog" class="image-wrap">
+          <picture><source srcset="images/hawaii-sandals-beach-escape-card.webp" type="image/webp"><img src="images/hawaii-sandals-beach-escape-card.jpg" alt="Hawaii beach with turquoise waves and distant mountain at golden hour" loading="lazy"></picture>
+          <span class="category-tag">Beach Escapes</span>
+        </a>
+        <h3><a href="/blog">The Honest Guide to Sandals Resorts: Which Location Is Actually Worth It?</a></h3>
+        <p class="excerpt">A travel advisor's take on the differences between properties, including which rooms to book and which to skip.</p>
+        <div class="post-meta">
+          <div class="author"><span>Cynthia</span></div>
+          <span class="dot"></span>
+          <time datetime="2026-02-22">Feb 22, 2026</time>
+          <span class="dot"></span>
+          <span>15 min</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h3>Join The Journal</h3>
+    <p>New guides, design sources, and travel insights delivered once a month. No spam — just the things worth saving.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- PAGINATION -->
+  <div class="pagination">
+    <span class="current">1</span>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">→</a>
+  </div>
+
+  <!-- FOOTER -->
+</BaseLayout>
+
+<style is:global>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #f8f6f2;
+      --cream-alt: #f4f1ec;
+      --teal-dark: #1c3939;
+      --teal: #2d6a6a;
+      --teal-footer: #2a6363;
+      --coral-solid: #e18c84;
+      --coral: rgba(225, 140, 132, 0.9);
+      --gold: #e1a75c;
+      --border-gray: #d4d0ca;
+      --font-heading: 'EB Garamond', serif;
+      --font-display: 'Bodoni Moda', 'Bodoni MT', 'Didot', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--teal-dark); background: var(--cream); overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: var(--teal-dark); text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: transparent; transition: all 0.3s ease; }
+    .header.scrolled {
+      background: rgba(28, 57, 57, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+      padding: 8px 40px;
+    }
+    .header-logo { height: auto; transition: opacity 0.3s ease; }
+    .header-logo--stacked { width: 180px; }
+    .header-logo--horizontal { width: 280px; display: none; }
+    .header.scrolled .header-logo--stacked { display: none; }
+    .header.scrolled .header-logo--horizontal { display: block; }
+    .menu-btn { background: #e1a75c; border: none; padding: 10px 34px; border-radius: 50px; font-family: var(--font-body); font-size: 23px; font-weight: 400; color: var(--cream); cursor: pointer; transition: all 0.3s ease; min-width: 145px; height: 49px; display: flex; align-items: center; justify-content: center; }
+    .menu-btn:hover { background: #c9934e; }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      padding: 180px 60px 70px;
+      text-align: center;
+      background: var(--cream);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .breadcrumbs {
+      font-size: 13px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .breadcrumbs a { color: #888; }
+    .breadcrumbs a:hover { color: var(--teal); }
+
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: 88px;
+      font-weight: 400;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 20px;
+      color: var(--teal-dark);
+    }
+
+    .page-hero .subtitle {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-style: italic;
+      color: var(--teal-dark);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+    }
+
+    /* ===== CATEGORY PILLS ===== */
+    .category-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      padding: 10px 24px;
+      border: 1px solid var(--border-gray);
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pill:hover, .pill.active {
+      background: var(--teal-dark);
+      color: var(--cream);
+      border-color: var(--teal-dark);
+    }
+
+    /* ===== SEARCH ===== */
+    .search-wrap {
+      max-width: 420px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 14px 20px 14px 48px;
+      border: 1px solid var(--border-gray);
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .search-wrap input:focus { border-color: var(--teal-dark); }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: #888;
+    }
+
+    /* ===== FEATURED POST ===== */
+    .featured-section {
+      max-width: 1400px;
+      margin: 40px auto 80px;
+      padding: 0 60px;
+    }
+
+    .featured-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--coral-solid);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .featured-card .image-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .featured-card .image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .featured-card:hover .image-wrap img { transform: scale(1.04); }
+
+    .featured-card .category-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(248, 246, 242, 0.95);
+      color: var(--teal-dark);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .featured-card h2 {
+      font-family: var(--font-heading);
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+      color: var(--teal-dark);
+    }
+
+    .featured-card h2 a { color: inherit; transition: color 0.3s; }
+    .featured-card h2 a:hover { color: var(--teal); }
+
+    .featured-card .excerpt {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--teal-dark);
+      margin-bottom: 24px;
+      opacity: 0.85;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .post-meta .author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .post-meta .author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .post-meta .dot {
+      width: 3px;
+      height: 3px;
+      background: #ccc;
+      border-radius: 50%;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      padding: 14px 32px;
+      border: 1.5px solid var(--teal-dark);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .read-more:hover {
+      background: var(--teal-dark);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    .read-more svg { width: 16px; height: 16px; transition: transform 0.3s; }
+    .read-more:hover svg { transform: translateX(4px); }
+
+    /* ===== POST GRID ===== */
+    .blog-grid-wrap {
+      max-width: 1400px;
+      margin: 0 auto 80px;
+      padding: 0 60px;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: -1.5px;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .section-heading .count {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 40px;
+    }
+
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .post-card:hover { transform: translateY(-6px); }
+
+    .post-card .image-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/2;
+      margin-bottom: 20px;
+    }
+
+    .post-card .image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .post-card:hover .image-wrap img { transform: scale(1.06); }
+
+    .post-card .category-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(248, 246, 242, 0.95);
+      color: var(--teal-dark);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .post-card h3 {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: var(--teal-dark);
+    }
+
+    .post-card h3 a { color: inherit; transition: color 0.3s; }
+    .post-card h3 a:hover { color: var(--teal); }
+
+    .post-card .excerpt {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--teal-dark);
+      opacity: 0.8;
+      margin-bottom: 16px;
+    }
+
+    .post-card .post-meta {
+      margin-top: auto;
+      font-size: 12px;
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter {
+      background: var(--teal-dark);
+      color: var(--cream);
+      padding: 80px 60px;
+      text-align: center;
+      margin: 0 auto 80px;
+      max-width: 1400px;
+      border-radius: 24px;
+    }
+
+    .newsletter h3 {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: -1.5px;
+      margin-bottom: 14px;
+    }
+
+    .newsletter p {
+      font-size: 16px;
+      opacity: 0.85;
+      margin-bottom: 32px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+      gap: 12px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 1px solid rgba(248, 246, 242, 0.3);
+      border-radius: 50px;
+      background: rgba(248, 246, 242, 0.08);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .newsletter-form input::placeholder { color: rgba(248, 246, 242, 0.5); }
+    .newsletter-form input:focus { border-color: var(--cream); }
+
+    .newsletter-form button {
+      padding: 16px 36px;
+      background: var(--coral-solid);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #d47a72;
+      transform: translateY(-1px);
+    }
+
+    /* ===== PAGINATION ===== */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 80px;
+    }
+
+    .pagination a, .pagination span {
+      padding: 12px 18px;
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--teal-dark);
+      transition: all 0.3s ease;
+      min-width: 44px;
+      text-align: center;
+    }
+
+    .pagination a:hover, .pagination .current {
+      background: var(--teal-dark);
+      color: var(--cream);
+      border-color: var(--teal-dark);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--teal-footer); color: var(--cream); padding: 60px 60px 30px; }
+    .footer-top { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(248, 246, 242, 0.18); }
+    .footer-logo-img { height: 70px; width: auto; }
+    .footer-content { display: grid; grid-template-columns: auto 1fr 1fr; gap: 100px; align-items: start; }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(248, 246, 242, 0.95); border-radius: 50%; color: var(--teal-footer); text-decoration: none; transition: all 0.3s; }
+    .footer-social a:hover { background: #fff; transform: translateY(-2px); }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 14px; }
+    .footer-links a { color: var(--cream); text-decoration: none; font-size: 16px; opacity: 0.88; transition: opacity 0.3s; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom { text-align: center; padding-top: 30px; font-size: 14px; opacity: 0.7; }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu { position: fixed; inset: 0; background: var(--teal-footer); z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu-close { position: absolute; top: 32px; right: 40px; background: var(--cream); border: none; width: 52px; height: 52px; border-radius: 50%; font-size: 22px; color: var(--teal-dark); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
+    .mobile-menu-close:hover { transform: rotate(90deg); }
+    .mobile-menu-links { list-style: none; text-align: center; width: 100%; max-width: 500px; padding: 0 40px; }
+    .mobile-menu-links li { padding: 22px 0; border-bottom: 1px solid rgba(248, 246, 242, 0.2); opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .mobile-menu-links li:last-child { border-bottom: none; }
+    .mobile-menu.open .mobile-menu-links li { opacity: 1; transform: translateY(0); }
+    .mobile-menu.open .mobile-menu-links li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(2) { transition-delay: 0.22s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(3) { transition-delay: 0.29s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(4) { transition-delay: 0.36s; }
+    .mobile-menu-links a { font-family: var(--font-heading); font-size: clamp(22px, 5vw, 32px); color: var(--cream); text-decoration: none; }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .post-card {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .post-card.visible { opacity: 1; transform: translateY(0); }
+    .post-card:nth-child(2).visible { transition-delay: 0.1s; }
+    .post-card:nth-child(3).visible { transition-delay: 0.2s; }
+    .post-card:nth-child(5).visible { transition-delay: 0.1s; }
+    .post-card:nth-child(6).visible { transition-delay: 0.2s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .page-hero h1 { font-size: 68px; }
+      .featured-card { grid-template-columns: 1fr; gap: 30px; }
+      .featured-card h2 { font-size: 40px; }
+      .post-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .header { padding: 14px 20px; }
+      .header.scrolled { padding: 10px 20px; }
+      .header-logo--stacked { width: 140px; }
+      .header.scrolled .header-logo--horizontal { width: 200px; }
+      .header-logo--stacked { width: 180px; }
+    .header-logo--horizontal { width: 280px; display: none; }
+    .header.scrolled .header-logo--stacked { display: none; }
+    .header.scrolled .header-logo--horizontal { display: block; }
+      .menu-btn { padding: 10px 26px; font-size: 18px; min-width: 120px; height: 44px; }
+
+      .page-hero { padding: 140px 24px 50px; }
+      .page-hero h1 { font-size: 48px; letter-spacing: -1.5px; }
+      .page-hero .subtitle { font-size: 18px; }
+
+      .featured-section, .blog-grid-wrap { padding: 0 24px; margin-bottom: 50px; }
+      .featured-card h2 { font-size: 32px; }
+
+      .section-heading { font-size: 32px; }
+
+      .post-grid { grid-template-columns: 1fr; gap: 36px; }
+
+      .newsletter { padding: 50px 24px; margin-bottom: 50px; border-radius: 16px; }
+      .newsletter h3 { font-size: 32px; }
+      .newsletter-form { flex-direction: column; }
+
+      .footer { padding: 50px 24px 30px; }
+      .footer-content { grid-template-columns: 1fr; gap: 36px; }
+      .footer-logo-img { height: 55px; }
+
+      .category-pills { gap: 8px; }
+      .pill { padding: 8px 18px; font-size: 11px; }
+    }
+  
+    @media (max-width: 480px) {
+      .mobile-menu-links { padding: 0 24px; }
+      .mobile-menu-links li { padding: 18px 0; }
+    }
+</style>

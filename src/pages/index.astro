@@ -1,0 +1,788 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://cynthiastayscurated.com/#organization",
+        "name": "Cynthia Stays Curated",
+        "url": "https://cynthiastayscurated.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cynthiastayscurated.com/images/cynthia-stays-curated-logo.png",
+          "width": 420,
+          "height": 422
+        },
+        "image": "https://cynthiastayscurated.com/images/cynthia-stays-curated-logo.png",
+        "description": "Travel advisor and short-term rental interior designer specializing in Disney, Universal, cruises, national parks, beach escapes, and elevated rental design.",
+        "sameAs": [
+          "https://www.instagram.com/cynthiastayscurated",
+          "https://www.pinterest.com/cynthiastayscurated",
+          "https://www.tiktok.com/@cynthiastayscurated"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Cynthia",
+          "jobTitle": "Travel Advisor & Short-Term Rental Designer"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://cynthiastayscurated.com/#website",
+        "url": "https://cynthiastayscurated.com/",
+        "name": "Cynthia Stays Curated",
+        "publisher": { "@id": "https://cynthiastayscurated.com/#organization" },
+        "inLanguage": "en-US",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://cynthiastayscurated.com/blog?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://cynthiastayscurated.com/#service",
+        "name": "Cynthia Stays Curated",
+        "url": "https://cynthiastayscurated.com/",
+        "image": "https://cynthiastayscurated.com/images/cynthia-travel-advisor-str-designer.jpg",
+        "priceRange": "$$-$$$",
+        "serviceType": ["Travel Planning", "Interior Design", "Short-Term Rental Design"],
+        "areaServed": { "@type": "Country", "name": "United States" }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does a travel advisor do that I can't do myself?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A travel advisor handles the research, booking, and logistics of your trip — comparing resorts, timing pricing drops, securing perks you can't get online, and acting as your advocate if anything goes wrong. At Cynthia Stays Curated, travel planning is complimentary for most bookings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you charge for a short-term rental design consultation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Initial design consultations are free so we can discuss your property, goals, and budget before you commit to anything."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What destinations do you plan trips for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Disney World, Disneyland, Disney Cruises, Universal Orlando, Royal Caribbean, Virgin Voyages, MSC, Sandals resorts, the Florida Keys, Hawaii, Zion, Grand Canyon, Big Bend, Nashville, Charleston, and Scottsdale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you design short-term rentals remotely?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Both New Property Virtual Design and Property Refresh packages are offered remotely, with options that include sourced links only or full ordering management."
+        }
+      }
+    ]
+  }
+]);
+---
+
+<BaseLayout
+  title="Cynthia Stays Curated | Travel Advisor & STR Designer"
+  description="Travel advisor and short-term rental interior designer specializing in Disney, Universal, cruises, national parks, and boutique beach escapes."
+  canonical="https://cynthiastayscurated.com/"
+  ogTitle="Cynthia Stays Curated | Travel Advisor + Short-Term Rental Designer"
+  ogDescription="Curated travel planning and elevated short-term rental design. Disney, cruises, national parks, and intentional spaces guests love."
+  ogImage="https://cynthiastayscurated.com/images/disney-world-cinderella-castle-hero.png"
+  twitterTitle="Cynthia Stays Curated | Travel + Design"
+  twitterDescription="Curated travel planning and elevated short-term rental design."
+  schema={schema}
+>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-panel" id="heroLeft">
+      <picture><source srcset="/images/disney-world-cinderella-castle-hero.webp" type="image/webp"><img src="/images/disney-world-cinderella-castle-hero.jpg" alt="Cinderella Castle at Walt Disney World Magic Kingdom — curated travel planning by Cynthia Stays Curated" class="hero-panel-img" loading="lazy"></picture>
+      <div class="hero-overlay">
+        <h1>Curated Travel</h1>
+        <a href="/contact-travel" class="hero-cta hero-cta--travel">Travel Quote</a>
+      </div>
+    </div>
+    <div class="hero-panel" id="heroRight">
+      <picture><source srcset="/images/elevated-rental-living-room-hero.webp" type="image/webp"><img src="/images/elevated-rental-living-room-hero.jpg" alt="Elevated short-term rental living room with teal accent wall and tan leather chair — interior design by Cynthia Stays Curated" class="hero-panel-img" loading="lazy"></picture>
+      <div class="hero-overlay">
+        <h2>Elevated Spaces</h2>
+        <a href="/contact-design" class="hero-cta hero-cta--design">Design Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER -->
+  <div class="banner" id="banner">
+    <h2>Travel + Design</h2>
+  </div>
+
+  <!-- MY STORY -->
+  <section class="story" id="story">
+    <div class="story-text fade-up">
+      <h2>My Story</h2>
+      <p class="subtitle">A little about my journey...</p>
+      <p>I'm Cynthia - a travel advisor, short-term rental designer, and the heart behind Cynthia Stays Curated.</p>
+      <p>I don't just love beautiful places. I care about how they work!</p>
+      <p>The spaces people remember, the ones they return to, recommend, and never want to leave are not accidental. They are intentional.</p>
+      <p>Before this, I built my work around systems, understanding how things flow, where they break down, and how small details shape the overall experience.</p>
+      <p>I've always been drawn to what most people overlook, the friction points, the missed moments, the details that quietly define how something feels.</p>
+      <p>Over time, I realized something, the same thinking that creates seamless systems, creates seamless stays and thoughtfully planned travel.</p>
+      <p>So I brought them together.</p>
+    </div>
+    <div class="story-image fade-up fade-up-delay-2">
+      <picture><source srcset="/images/cynthia-travel-advisor-str-designer.webp" type="image/webp"><img src="/images/cynthia-travel-advisor-str-designer.jpg" alt="Cynthia — travel advisor and short-term rental interior designer behind Cynthia Stays Curated" loading="lazy"></picture>
+    </div>
+  </section>
+
+  <!-- SERVICES: TRAVEL -->
+  <section class="services-block" id="services-travel">
+    <div class="services-header fade-up">
+      <h2>Services</h2>
+      <div class="services-label-wrap">
+        <span class="services-label">TRAVEL</span>
+      </div>
+    </div>
+
+    <div class="travel-grid">
+      <div class="travel-card card-disney">
+        <div class="travel-card-img-wrap">
+          <picture><source srcset="/images/disney-world-travel-advisor-card.webp" type="image/webp"><img src="/images/disney-world-travel-advisor-card.jpg" alt="Disney World Cinderella Castle — Disney travel planning with a travel advisor" loading="lazy"></picture>
+        </div>
+        <span class="star">&#10038;</span>
+        <h3>Disney</h3>
+        <p>Disney World, Disneyland, Disney Cruises</p>
+      </div>
+      <div class="travel-card card-universal">
+        <div class="travel-card-img-wrap">
+          <picture><source srcset="/images/universal-orlando-travel-advisor-card.webp" type="image/webp"><img src="/images/universal-orlando-travel-advisor-card.jpg" alt="Universal Orlando globe entrance — Universal Studios and Epic Universe travel planning" loading="lazy"></picture>
+        </div>
+        <span class="star">&#10038;</span>
+        <h3>Universal</h3>
+        <p>Universal Studios, Islands of Adventure, Epic</p>
+      </div>
+      <div class="travel-card card-cruises">
+        <div class="travel-card-img-wrap">
+          <picture><source srcset="/images/virgin-voyages-cruise-travel-card.webp" type="image/webp"><img src="/images/virgin-voyages-cruise-travel-card.jpg" alt="Virgin Voyages cruise ship at sunset — Royal Caribbean, Virgin Voyages, and MSC cruise planning" loading="lazy"></picture>
+        </div>
+        <span class="star">&#10038;</span>
+        <h3>Cruises</h3>
+        <p>Royal Caribbean, Virgin Voyages, MSC</p>
+      </div>
+      <div class="travel-card card-parks">
+        <div class="travel-card-img-wrap">
+          <picture><source srcset="/images/zion-grand-canyon-national-parks-card.webp" type="image/webp"><img src="/images/zion-grand-canyon-national-parks-card.jpg" alt="Zion National Park canyon at sunrise — Zion, Grand Canyon, and Big Bend trip planning" loading="lazy"></picture>
+        </div>
+        <span class="star">&#10038;</span>
+        <h3>National Parks</h3>
+        <p>Zion, Grand Canyon, Big Bend</p>
+      </div>
+      <div class="travel-card card-beach">
+        <div class="travel-card-img-wrap">
+          <picture><source srcset="/images/hawaii-sandals-beach-escape-card.webp" type="image/webp"><img src="/images/hawaii-sandals-beach-escape-card.jpg" alt="Hawaii beach with turquoise water — Florida Keys, Hawaii, and Sandals resort planning" loading="lazy"></picture>
+        </div>
+        <span class="star">&#10038;</span>
+        <h3>Beach Escapes</h3>
+        <p>Florida Keys, Hawaii, Sandals</p>
+      </div>
+      <div class="travel-card card-metro">
+        <div class="travel-card-img-wrap">
+          <picture><source srcset="/images/nashville-charleston-metropolitan-card.webp" type="image/webp"><img src="/images/nashville-charleston-metropolitan-card.jpg" alt="Nashville downtown at night — Nashville, Charleston, and Scottsdale weekend trip planning" loading="lazy"></picture>
+        </div>
+        <span class="star">&#10038;</span>
+        <h3>Metropolitan</h3>
+        <p>Nashville, Charleston, Scottsdale</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES: DESIGN -->
+  <section class="services-block" id="services-design">
+    <div class="services-header fade-up">
+      <h2>Services</h2>
+      <div class="services-label-wrap">
+        <span class="services-label">DESIGN</span>
+      </div>
+    </div>
+
+    <div class="design-grid">
+      <div class="design-card">
+        <picture><source srcset="/images/str-bedroom-design-vision-case-study.webp" type="image/webp"><img src="/images/str-bedroom-design-vision-case-study.jpg" alt="Short-term rental bedroom with custom upholstered headboard and layered bedding — Vision design package" loading="lazy"></picture>
+        <div class="design-card-overlay">
+          <div class="design-card-label label-vision">
+            <span class="star">&#10038;</span>
+            <h3>Vision</h3>
+            <p>Every space begins with intention — defining how it feels, how it flows, and how it is remembered, with each decision shaped by how the space is experienced and lived in.</p>
+          </div>
+        </div>
+      </div>
+      <div class="design-card">
+        <picture><source srcset="/images/short-term-rental-craft-interior-design.webp" type="image/webp"><img src="/images/short-term-rental-craft-interior-design.jpg" alt="Modern short-term rental living room with teal walls, cognac leather chair, and curated art — Craft design package" loading="lazy"></picture>
+        <div class="design-card-overlay">
+          <div class="design-card-label label-craft">
+            <span class="star">&#10038;</span>
+            <h3>Craft</h3>
+            <p>Details shape the experience — from layout to materials, every element carefully curated and guided by how the space is lived in and what guests naturally reach for.</p>
+          </div>
+        </div>
+      </div>
+      <div class="design-card">
+        <picture><source srcset="/images/str-dining-design-execute-case-study.webp" type="image/webp"><img src="/images/str-dining-design-execute-case-study.jpg" alt="Short-term rental dining area with velvet chairs and neon sign — Execute design package" loading="lazy"></picture>
+        <div class="design-card-overlay">
+          <div class="design-card-label label-execute">
+            <span class="star">&#10038;</span>
+            <h3>Execute</h3>
+            <p>Everything is brought together — from sourcing to final touches, each element implemented with intention to create a seamless experience guests return to.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ===== HERO ===== */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 850px;
+    position: relative;
+  }
+
+  .hero-panel {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-panel-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: scale(var(--scroll-zoom, 1));
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+  }
+
+  #heroLeft .hero-panel-img { object-position: center 30%; }
+  #heroRight .hero-panel-img { object-position: center 55%; }
+
+  .hero-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.38) 65%, rgba(0,0,0,0.1) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .hero-overlay h1, .hero-overlay h2 {
+    font-family: var(--font-display);
+    font-size: 70px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: -3.5px;
+    line-height: 0.95;
+    margin-bottom: 28px;
+    text-shadow:
+      0 2px 4px rgba(0,0,0,0.35),
+      0 8px 24px rgba(0,0,0,0.45),
+      0 16px 40px rgba(0,0,0,0.3);
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 353px;
+    height: 61px;
+    max-width: 80%;
+    border-radius: 60px;
+    font-family: var(--font-body);
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 1.15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--cream);
+    margin: 0 auto;
+    transition: all 0.3s ease;
+  }
+
+  .hero-cta--travel { background: var(--coral); }
+  .hero-cta--travel:hover {
+    background: rgba(225, 120, 112, 0.98);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(225, 140, 132, 0.5);
+  }
+
+  .hero-cta--design { background: var(--blue-teal); }
+  .hero-cta--design:hover {
+    background: rgba(68, 136, 160, 0.98);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(78, 152, 180, 0.5);
+  }
+
+  /* ===== BANNER ===== */
+  .banner {
+    background: var(--teal);
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .banner h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 52px;
+    font-weight: 100;
+    color: var(--cream);
+    letter-spacing: 6px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  /* ===== MY STORY ===== */
+  .story {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 50px 60px 40px;
+    align-items: center;
+  }
+
+  .story-text { max-width: 560px; }
+
+  .story-text h2 {
+    font-family: var(--font-heading);
+    font-size: 76px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    letter-spacing: -2px;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+
+  .story-text .subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--teal-dark);
+    letter-spacing: 0;
+    margin-bottom: 20px;
+    padding-left: 0;
+    opacity: 0.85;
+  }
+
+  .story-text p {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--teal-dark);
+    margin-bottom: 18px;
+  }
+
+  .story-image {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .story-image img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+    box-shadow: 0 20px 60px rgba(28, 57, 57, 0.15);
+  }
+
+  /* ===== SERVICES HEADER ===== */
+  .services-block {
+    padding: 0 0 60px;
+  }
+
+  .services-block:last-of-type {
+    padding-bottom: 0;
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    width: 100%;
+    margin: 0 0 60px;
+    border-top: 1px solid #d8d4ce;
+    border-bottom: 1px solid #d8d4ce;
+    min-height: 140px;
+  }
+
+  .services-header h2 {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    letter-spacing: -1.2px;
+    padding: 0 0 0 90px;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .services-label-wrap {
+    border-left: 1px solid #d8d4ce;
+    padding: 0 0 0 90px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .services-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #b0aba3;
+    line-height: 1;
+  }
+
+  /* ===== TRAVEL CARDS ===== */
+  .travel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 56px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 60px 30px;
+  }
+
+  .travel-card {
+    border-radius: 22px;
+    position: relative;
+    padding: 60px 32px 36px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  }
+
+  .travel-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+  }
+
+  .travel-card.visible { opacity: 1; transform: translateY(0); }
+  .travel-card:nth-child(1).visible { transition-delay: 0.05s; }
+  .travel-card:nth-child(2).visible { transition-delay: 0.12s; }
+  .travel-card:nth-child(3).visible { transition-delay: 0.19s; }
+  .travel-card:nth-child(4).visible { transition-delay: 0.26s; }
+  .travel-card:nth-child(5).visible { transition-delay: 0.33s; }
+  .travel-card:nth-child(6).visible { transition-delay: 0.40s; }
+
+  .travel-card-img-wrap {
+    position: absolute;
+    top: -40px;
+    right: 26px;
+    width: 56%;
+    height: 150px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .travel-card:hover .travel-card-img-wrap {
+    transform: translateY(-4px);
+  }
+
+  .travel-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .travel-card .star {
+    font-size: 24px;
+    color: #fff;
+    opacity: 0.95;
+    margin-bottom: 14px;
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 300;
+  }
+
+  .travel-card h3 {
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+
+  .travel-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.5;
+  }
+
+  .card-disney { background: #4a98a6; }
+  .card-universal { background: #d9a14a; }
+  .card-cruises { background: #e29993; }
+  .card-parks { background: #798548; }
+  .card-beach { background: #3d8a89; }
+  .card-metro { background: #58574f; }
+
+  /* ===== DESIGN CARDS ===== */
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+  }
+
+  .design-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 750px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .design-card.visible { opacity: 1; transform: translateY(0); }
+  .design-card:nth-child(1).visible { transition-delay: 0.1s; }
+  .design-card:nth-child(2).visible { transition-delay: 0.25s; }
+  .design-card:nth-child(3).visible { transition-delay: 0.4s; }
+
+  .design-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    position: absolute;
+    inset: 0;
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .design-card:nth-child(1) img { object-position: center 35%; }
+  .design-card:nth-child(2) img { object-position: center 70%; }
+  .design-card:nth-child(3) img { object-position: center 40%; }
+
+  .design-card:hover img {
+    transform: scale(1.04);
+  }
+
+  .design-card-overlay {
+    position: absolute;
+    top: 36px;
+    left: 36px;
+    right: 36px;
+    z-index: 2;
+  }
+
+  .design-card-label {
+    padding: 32px 36px 34px;
+    border-radius: 14px;
+    position: relative;
+    max-width: 310px;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+  }
+
+  .design-card-label .star {
+    position: absolute;
+    top: 28px;
+    right: 32px;
+    font-size: 22px;
+    color: var(--teal-dark);
+    opacity: 0.9;
+    font-weight: 300;
+  }
+
+  .design-card-label h3 {
+    font-family: var(--font-heading);
+    font-size: 46px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: var(--teal-dark);
+    margin-bottom: 18px;
+    line-height: 1;
+  }
+
+  .design-card-label p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--teal-dark);
+    padding-right: 30px;
+  }
+
+  .label-vision { background: #e0a457; }
+  .label-craft { background: #e49893; }
+  .label-execute { background: #c4dfd9; }
+
+  /* ===== SCROLL ANIMATIONS (page-specific) ===== */
+  .hero-panel {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+
+  .hero-panel.visible { opacity: 1; }
+
+  .hero-overlay h1, .hero-overlay h2 {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s, transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+  }
+
+  .hero-panel.visible .hero-overlay h1,
+  .hero-panel.visible .hero-overlay h2 {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-overlay .hero-cta {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s, background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hero-panel.visible .hero-overlay .hero-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .banner h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .banner.visible h2 { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .story { gap: 50px; padding: 80px 40px; }
+    .story-text h2 { font-size: 60px; }
+    .services-header { padding: 0 40px; }
+    .services-header h2 { font-size: 56px; }
+    .travel-grid { padding: 0 40px; gap: 24px; }
+    .hero-overlay h1, .hero-overlay h2 { font-size: 60px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; height: auto; }
+    .hero-panel { min-height: 58vh; }
+    .hero-overlay h1, .hero-overlay h2 { font-size: 48px; margin-bottom: 24px; }
+    .hero-cta { font-size: 16px; padding: 14px 48px; }
+
+    .banner { padding: 26px 20px; }
+    .banner h2 { font-size: 28px; letter-spacing: 4px; }
+
+    .story { grid-template-columns: 1fr; padding: 40px 24px 20px; gap: 30px; }
+    .story-text { max-width: 100%; }
+    .story-text h2 { font-size: 52px; }
+    .story-text .subtitle { font-size: 18px; margin-bottom: 16px; }
+    .story-text p { font-size: 16px; margin-bottom: 14px; }
+    .story-image { order: -1; justify-content: center; }
+    .story-image img { max-width: 100%; border-radius: 20px; }
+
+    .services-block { padding: 10px 0 30px; }
+    .services-header { padding: 0; min-height: 80px; margin-bottom: 60px; }
+    .services-header h2 { font-size: 42px; padding-left: 24px; }
+    .services-label-wrap { padding: 0 24px; }
+    .services-label { font-size: 22px; letter-spacing: 4px; }
+
+    .travel-grid { grid-template-columns: 1fr; padding: 0 24px 20px; gap: 70px; }
+    .travel-card { min-height: 150px; padding: 24px 28px 28px; border-radius: 20px; }
+    .travel-card h3 { font-size: 26px; margin-top: 20px; }
+    .travel-card p { font-size: 13px; }
+    .travel-card-img-wrap { width: 48%; height: 100px; top: -30px; right: 24px; }
+
+    .design-grid { grid-template-columns: 1fr; }
+    .design-card { min-height: 480px; }
+    .design-card-label { max-width: 90%; }
+    .design-card-label h3 { font-size: 36px; }
+  }
+</style>
+
+<script>
+  // Travel cards + design cards + banner observer
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.travel-card, .design-card, .banner').forEach(el => {
+    cardObserver.observe(el);
+  });
+
+  // Hero panels on load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.hero-panel').forEach(p => p.classList.add('visible'));
+    }, 150);
+  });
+
+  // Scroll-driven hero zoom
+  const heroSection = document.querySelector('.hero');
+  const heroPanels = document.querySelectorAll('.hero-panel');
+  let ticking = false;
+  function updateHeroZoom() {
+    if (!heroSection) return;
+    const rect = heroSection.getBoundingClientRect();
+    const heroHeight = rect.height;
+    const progress = Math.max(0, Math.min(1, (-rect.top) / heroHeight));
+    const zoom = 1 + progress * 0.25;
+    heroPanels.forEach(p => {
+      const img = p.querySelector('.hero-panel-img');
+      if (img) img.style.setProperty('--scroll-zoom', zoom.toFixed(3));
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeroZoom);
+      ticking = true;
+    }
+  }, { passive: true });
+  updateHeroZoom();
+</script>

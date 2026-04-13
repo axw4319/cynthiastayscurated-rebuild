@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Accessibility Statement",
+  "url": "https://cynthiastayscurated.com/accessibility-statement",
+  "description": "Accessibility statement for Cynthia Stays Curated.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cynthia Stays Curated",
+    "url": "https://cynthiastayscurated.com"
+  }
+});
+---
+
+<BaseLayout
+  title="Accessibility Statement | Cynthia Stays Curated"
+  description="Cynthia Stays Curated is committed to making this website accessible to everyone. Learn about our accessibility standards and how to contact us."
+  canonical="https://cynthiastayscurated.com/accessibility-statement"
+  ogTitle="Accessibility Statement | Cynthia Stays Curated"
+  ogDescription="Cynthia Stays Curated is committed to making this website accessible to everyone."
+  ogImage="https://cynthiastayscurated.com/images/cynthia-stays-curated-logo-horizontal.png"
+  schema={schema}
+>
+
+  <main class="legal-page">
+    <h1>Accessibility Statement</h1>
+    <p class="updated">Last updated: April 11, 2026</p>
+
+    <p>Cynthia Stays Curated is committed to making <a href="https://cynthiastayscurated.com">cynthiastayscurated.com</a> accessible to as many people as possible, including visitors who rely on assistive technologies. We believe that a welcoming website is part of hospitality, and we work continuously to remove barriers to access.</p>
+
+    <h2>Our Commitment</h2>
+    <p>We aim to conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1, Level AA</strong>. These guidelines explain how to make web content more accessible to people with a wide range of disabilities, including visual, auditory, physical, speech, cognitive, language, learning, and neurological needs.</p>
+
+    <h2>Measures Taken</h2>
+    <p>To make our website accessible, we have:</p>
+    <ul>
+      <li>Included descriptive alternative text on meaningful images</li>
+      <li>Used semantic HTML to support screen reader navigation</li>
+      <li>Maintained sufficient color contrast between text and backgrounds</li>
+      <li>Ensured interactive elements are reachable with a keyboard</li>
+      <li>Provided clear page titles, headings, and link labels</li>
+      <li>Tested our forms with common assistive technologies</li>
+    </ul>
+
+    <h2>Known Limitations</h2>
+    <p>Despite our best efforts, some portions of our website may not yet be fully accessible. We are actively working to improve these areas. If you encounter content that is difficult to use or understand, please let us know — your feedback helps us improve.</p>
+
+    <h2>Reporting an Issue</h2>
+    <p>If you experience any difficulty accessing content on our website, or if you have suggestions for how we can improve, please contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:cynthiastayscurated@gmail.com">cynthiastayscurated@gmail.com</a></p>
+    <p>We aim to respond to accessibility inquiries within <strong>5 business days</strong> and will do our best to provide the information or service you need in an alternative format.</p>
+
+    <h2>Third-Party Content</h2>
+    <p>Some content on this website is provided by third parties (for example, embedded maps, social feeds, or booking platforms). We do not control the accessibility of third-party content, but we will make reasonable efforts to provide the information in an alternative format upon request.</p>
+
+    <h2>Feedback</h2>
+    <p>We welcome your feedback on the accessibility of Cynthia Stays Curated. Please let us know if you encounter any barriers — we take every report seriously and use it to make our site better for everyone.</p>
+  </main>
+
+</BaseLayout>
+
+<style is:global>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #f8f6f2;
+      --cream-alt: #f4f1ec;
+      --teal-dark: #1c3939;
+      --teal: #2d6a6a;
+      --teal-footer: #2a6363;
+      --coral-solid: #e18c84;
+      --gold: #e1a75c;
+      --border-gray: #d4d0ca;
+      --font-heading: 'Bodoni Moda', 'Bodoni MT', 'Didot', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--teal-dark); background: var(--cream); overflow-x: hidden; line-height: 1.7; }
+    img { display: block; max-width: 100%; }
+    a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--teal-dark); }
+
+    /* HEADER */
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: transparent; transition: all 0.35s ease; }
+    .header.scrolled { background: rgba(28, 57, 57, 0.96); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.15); padding: 8px 40px; }
+    .header-logo { height: auto; transition: opacity 0.3s ease; }
+    .header-logo--stacked { width: 180px; }
+    .header-logo--horizontal { width: 280px; display: none; }
+    .header.scrolled .header-logo--stacked { display: none; }
+    .header.scrolled .header-logo--horizontal { display: block; }
+    .menu-btn { background: #e1a75c; border: none; padding: 10px 34px; border-radius: 50px; font-family: var(--font-body); font-size: 23px; font-weight: 400; color: var(--cream); cursor: pointer; transition: all 0.3s ease; min-width: 145px; height: 49px; display: flex; align-items: center; justify-content: center; }
+    .menu-btn:hover { background: #c9934e; transform: translateY(-1px); }
+
+    /* PAGE WRAP */
+    .legal-page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 180px 40px 100px;
+    }
+
+    .legal-page h1 {
+      font-family: var(--font-heading);
+      font-size: 72px;
+      font-weight: 400;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 40px;
+      color: var(--teal-dark);
+      text-transform: uppercase;
+    }
+
+    .legal-page .updated {
+      font-size: 13px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    .legal-page h2 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin: 50px 0 18px;
+      color: var(--teal-dark);
+    }
+
+    .legal-page h3 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 500;
+      margin: 30px 0 12px;
+      color: var(--teal-dark);
+    }
+
+    .legal-page p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--teal-dark);
+      margin-bottom: 18px;
+    }
+
+    .legal-page ul {
+      padding-left: 24px;
+      margin-bottom: 24px;
+    }
+
+    .legal-page li {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 8px;
+      color: var(--teal-dark);
+    }
+
+    .legal-page strong { font-weight: 600; color: var(--teal-dark); }
+
+    /* FOOTER */
+    .footer { background: var(--teal-footer); color: var(--cream); padding: 60px 60px 30px; }
+    .footer-top { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(248, 246, 242, 0.18); }
+    .footer-logo-img { height: 70px; width: auto; }
+    .footer-content { display: grid; grid-template-columns: auto 1fr 1fr; gap: 100px; align-items: start; max-width: 1400px; margin: 0 auto; }
+    .footer-social { display: flex; gap: 16px; justify-content: flex-start; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(248, 246, 242, 0.95); border-radius: 50%; color: var(--teal-footer); text-decoration: none; transition: all 0.3s; }
+    .footer-social a:hover { background: #fff; transform: translateY(-2px); }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 14px; }
+    .footer-links a { color: var(--cream); text-decoration: none; font-size: 16px; opacity: 0.88; transition: opacity 0.3s; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom { text-align: center; padding-top: 30px; font-size: 14px; opacity: 0.7; }
+
+    /* MOBILE MENU */
+    .mobile-menu { position: fixed; inset: 0; background: var(--teal-footer); z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu-close { position: absolute; top: 32px; right: 40px; background: var(--cream); border: none; width: 52px; height: 52px; border-radius: 50%; font-size: 22px; color: var(--teal-dark); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .mobile-menu-links { list-style: none; text-align: center; }
+    .mobile-menu-links li { padding: 22px 0; border-bottom: 1px solid rgba(248, 246, 242, 0.2); opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .mobile-menu-links li:last-child { border-bottom: none; }
+    .mobile-menu.open .mobile-menu-links li { opacity: 1; transform: translateY(0); }
+    .mobile-menu.open .mobile-menu-links li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(2) { transition-delay: 0.25s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(3) { transition-delay: 0.35s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(4) { transition-delay: 0.45s; }
+    .mobile-menu-links a { font-family: var(--font-heading); font-size: clamp(22px, 5vw, 32px); color: var(--cream); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .header { padding: 14px 20px; }
+      .header.scrolled { padding: 10px 20px; }
+      .header-logo--stacked { width: 140px; }
+      .header.scrolled .header-logo--horizontal { width: 200px; }
+      .header-logo--horizontal { width: 220px; }
+      .menu-btn { padding: 10px 26px; font-size: 17px; min-width: 120px; height: 44px; }
+
+      .legal-page { padding: 130px 24px 60px; }
+      .legal-page h1 { font-size: 44px; letter-spacing: -1px; }
+      .legal-page h2 { font-size: 28px; margin: 36px 0 14px; }
+      .legal-page h3 { font-size: 20px; }
+
+      .footer { padding: 50px 24px 30px; }
+      .footer-content { grid-template-columns: 1fr; gap: 36px; }
+      .footer-logo-img { height: 55px; }
+    }
+  
+    @media (max-width: 480px) {
+      .mobile-menu-links { padding: 0 24px; }
+      .mobile-menu-links li { padding: 18px 0; }
+    }
+  
+    @media (max-width: 600px) {
+      .header-logo--stacked { width: 120px; }
+      .legal-page { padding: 140px 20px 60px; }
+      .legal-page h1 { font-size: 36px; letter-spacing: -0.5px; }
+    }
+</style>

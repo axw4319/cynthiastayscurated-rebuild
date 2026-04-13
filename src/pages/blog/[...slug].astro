@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.pubDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Cynthia",
+    "url": "https://cynthiastayscurated.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cynthia Stays Curated",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cynthiastayscurated.com/images/cynthia-stays-curated-logo.png"
+    }
+  },
+  "image": post.data.heroImage || "https://cynthiastayscurated.com/images/disney-world-cinderella-castle-hero.webp",
+  "url": `https://cynthiastayscurated.com/blog/${post.id}`
+});
+---
+
+<BaseLayout
+  title={`${post.data.title} | Cynthia Stays Curated`}
+  description={post.data.description}
+  canonical={`https://cynthiastayscurated.com/blog/${post.id}`}
+  ogTitle={post.data.title}
+  ogDescription={post.data.description}
+  ogImage={post.data.heroImage || "https://cynthiastayscurated.com/images/disney-world-cinderella-castle-hero.webp"}
+  ogType="article"
+  schema={schema}
+>
+  <article class="blog-post-article">
+    {post.data.heroImage && (
+      <div class="post-hero">
+        <picture>
+          <source srcset={post.data.heroImage.replace(/\.jpg$/, '.webp').replace(/\.png$/, '.webp')} type="image/webp">
+          <img src={post.data.heroImage} alt={post.data.heroAlt || post.data.title} class="post-hero-img" loading="eager" fetchpriority="high">
+        </picture>
+        <div class="post-hero-overlay">
+          <div class="post-hero-meta">
+            {post.data.category && <span class="post-tag">{post.data.category}</span>}
+          </div>
+          <h1 class="post-hero-title">{post.data.title}</h1>
+          <p class="post-hero-date">{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        </div>
+      </div>
+    )}
+
+    <div class="post-body">
+      <div class="post-content">
+        <Content />
+      </div>
+
+      <aside class="post-sidebar">
+        <div class="sidebar-cta sidebar-cta--travel">
+          <h3>Plan Your Next Trip</h3>
+          <p>Get a free, personalized travel quote for Disney, cruises, national parks, and more.</p>
+          <a href="/contact-travel" class="sidebar-btn sidebar-btn--coral">Free Travel Quote</a>
+        </div>
+        <div class="sidebar-cta sidebar-cta--design">
+          <h3>Elevate Your Rental</h3>
+          <p>Virtual STR design that books more nights — new property or property refresh.</p>
+          <a href="/contact-design" class="sidebar-btn sidebar-btn--teal">Free Design Consult</a>
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  /* Blog post article */
+  .blog-post-article {
+    padding-top: 0;
+  }
+
+  .post-hero {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+  }
+
+  .post-hero picture {
+    display: contents;
+  }
+
+  .post-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .post-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 50px 60px;
+    z-index: 2;
+  }
+
+  .post-hero-meta {
+    margin-bottom: 12px;
+  }
+
+  .post-tag {
+    background: var(--coral-solid);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  .post-hero-title {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    max-width: 800px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .post-hero-date {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.5px;
+  }
+
+  .post-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .post-content {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--teal-dark);
+  }
+
+  .post-content h2 {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.8px;
+    color: var(--teal-dark);
+    margin: 48px 0 16px;
+    line-height: 1.1;
+  }
+
+  .post-content h3 {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    margin: 32px 0 10px;
+  }
+
+  .post-content p {
+    margin-bottom: 20px;
+  }
+
+  .post-content ul, .post-content ol {
+    margin: 0 0 20px 24px;
+  }
+
+  .post-content li {
+    margin-bottom: 8px;
+  }
+
+  .post-content a {
+    color: var(--teal);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .post-content a:hover {
+    color: var(--teal-dark);
+  }
+
+  .post-content strong {
+    font-weight: 600;
+  }
+
+  /* Sidebar */
+  .post-sidebar {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar-cta {
+    padding: 28px 24px;
+    border-radius: 12px;
+  }
+
+  .sidebar-cta--travel {
+    background: rgba(225, 140, 132, 0.1);
+    border: 1px solid rgba(225, 140, 132, 0.3);
+  }
+
+  .sidebar-cta--design {
+    background: rgba(78, 152, 180, 0.1);
+    border: 1px solid rgba(78, 152, 180, 0.3);
+  }
+
+  .sidebar-cta h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-cta p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--teal-dark);
+    opacity: 0.8;
+    margin-bottom: 18px;
+  }
+
+  .sidebar-btn {
+    display: block;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-btn--coral { background: var(--coral-solid); }
+  .sidebar-btn--coral:hover { background: #c97a72; transform: translateY(-1px); }
+  .sidebar-btn--teal { background: var(--teal); }
+  .sidebar-btn--teal:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .post-hero { height: 380px; }
+    .post-hero-overlay { padding: 30px 24px; }
+    .post-hero-title { font-size: 32px; }
+    .post-body { 
+      grid-template-columns: 1fr; 
+      padding: 40px 20px;
+      gap: 40px;
+    }
+    .post-sidebar { position: static; }
+  }
+</style>
+
+<script>
+  // Shared header scroll + menu behavior (from BaseLayout)
+</script>
