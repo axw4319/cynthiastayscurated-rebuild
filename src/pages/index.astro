@@ -755,12 +755,17 @@ const schema = JSON.stringify([
     cardObserver.observe(el);
   });
 
-  // Hero panels on load
-  window.addEventListener('load', () => {
+  // Hero panels on load — guard against load already fired (Astro defers scripts)
+  function initHeroPanels() {
     setTimeout(() => {
       document.querySelectorAll('.hero-panel').forEach(p => p.classList.add('visible'));
     }, 150);
-  });
+  }
+  if (document.readyState === 'complete') {
+    initHeroPanels();
+  } else {
+    window.addEventListener('load', initHeroPanels);
+  }
 
   // Scroll-driven hero zoom
   const heroSection = document.querySelector('.hero');

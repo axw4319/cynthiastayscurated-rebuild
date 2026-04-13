@@ -216,12 +216,11 @@ const schema = JSON.stringify({
     @media (max-width: 768px) {
       .header { padding: 14px 20px; }
       .header.scrolled { padding: 10px 20px; }
-      .header-logo--stacked { width: 140px; }
-      .header.scrolled .header-logo--horizontal { width: 200px; }
-      .header-logo--horizontal { width: 220px; }
+      .header-logo--stacked { width: 110px; }
+      .header.scrolled .header-logo--horizontal { width: 180px; }
       .menu-btn { padding: 10px 26px; font-size: 17px; min-width: 120px; height: 44px; }
 
-      .legal-page { padding: 130px 24px 60px; }
+      .legal-page { padding: 120px 24px 60px; }
       .legal-page h1 { font-size: 48px; letter-spacing: -1px; }
       .legal-page h2 { font-size: 28px; margin: 36px 0 14px; }
       .legal-page h3 { font-size: 20px; }
@@ -230,15 +229,11 @@ const schema = JSON.stringify({
       .footer-content { grid-template-columns: 1fr; gap: 36px; }
       .footer-logo-img { height: 55px; }
     }
-  
+
     @media (max-width: 480px) {
-      .mobile-menu-links { padding: 0 24px; }
-      .mobile-menu-links li { padding: 18px 0; }
-    }
-  
-    @media (max-width: 600px) {
-      .header-logo--stacked { width: 120px; }
-      .legal-page { padding: 140px 20px 60px; }
+      .header-logo--stacked { width: 90px; }
+      .header.scrolled .header-logo--horizontal { width: 160px; }
+      .legal-page { padding: 100px 20px 60px; }
       .legal-page h1 { font-size: 36px; letter-spacing: -0.5px; }
     }
 </style>
