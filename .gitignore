@@ -46,3 +46,5 @@ tests/screenshots/
 /orig-metrics.json
 video-frames/
 *.mp4
+/test-design-form-filled.png
+/test-design-form-submitted.png
