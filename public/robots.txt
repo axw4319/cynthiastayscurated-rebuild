@@ -4,7 +4,7 @@
 User-agent: *
 Allow: /
 
-# AI crawlers — explicitly allowed for LLM citation
+# OpenAI — search citation and browsing
 User-agent: GPTBot
 Allow: /
 
@@ -14,28 +14,52 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
+# Perplexity AI
 User-agent: PerplexityBot
 Allow: /
 
 User-agent: Perplexity-User
 Allow: /
 
+# Anthropic / Claude
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: Claude-Web
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI (AI Overviews / Gemini)
 User-agent: Google-Extended
 Allow: /
 
+# Apple (Safari AI / Siri)
 User-agent: Applebot-Extended
 Allow: /
 
+# Common Crawl (training data — allowed for broad index coverage)
 User-agent: CCBot
 Allow: /
 
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Bytedance / TikTok search
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://cynthiastayscurated.com/sitemap.xml
+# Microsoft / Bing (Copilot)
+User-agent: bingbot
+Allow: /
+
+User-agent: MSNBot
+Allow: /
+
+Sitemap: https://cynthiastayscurated.com/sitemap-index.xml

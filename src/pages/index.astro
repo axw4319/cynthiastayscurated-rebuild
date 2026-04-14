@@ -10,6 +10,7 @@ const schema = JSON.stringify([
         "@id": "https://cynthiastayscurated.com/#organization",
         "name": "Cynthia Stays Curated",
         "url": "https://cynthiastayscurated.com/",
+        "email": "cynthiastayscurated@gmail.com",
         "logo": {
           "@type": "ImageObject",
           "url": "https://cynthiastayscurated.com/images/cynthia-stays-curated-logo.png",
@@ -17,17 +18,39 @@ const schema = JSON.stringify([
           "height": 422
         },
         "image": "https://cynthiastayscurated.com/images/cynthia-stays-curated-logo.png",
-        "description": "Travel advisor and short-term rental interior designer specializing in Disney, Universal, cruises, national parks, beach escapes, and elevated rental design.",
+        "description": "Cynthia Stays Curated is a US-based travel advisory and short-term rental interior design service. Travel advisor Cynthia specializes in Disney, Universal, Royal Caribbean, Virgin Voyages, MSC Cruises, Sandals resorts, national parks, and coastal and city getaways. STR design packages are offered virtually to hosts across the United States.",
         "sameAs": [
           "https://www.instagram.com/cynthiastayscurated",
           "https://www.pinterest.com/cynthiastayscurated",
-          "https://www.tiktok.com/@cynthiastayscurated"
+          "https://www.tiktok.com/@cynthiastayscurated",
+          "https://www.amazon.com/shop/cynthiastayscurated"
         ],
         "founder": {
           "@type": "Person",
+          "@id": "https://cynthiastayscurated.com/#founder",
           "name": "Cynthia",
-          "jobTitle": "Travel Advisor & Short-Term Rental Designer"
-        }
+          "jobTitle": "Independent Travel Advisor & Short-Term Rental Interior Designer",
+          "worksFor": { "@id": "https://cynthiastayscurated.com/#organization" },
+          "knowsAbout": [
+            "Disney World travel planning",
+            "Disneyland travel planning",
+            "Disney Cruise Line",
+            "Universal Orlando",
+            "Royal Caribbean cruises",
+            "Virgin Voyages",
+            "MSC Cruises",
+            "Sandals all-inclusive resorts",
+            "National park trips",
+            "Short-term rental interior design",
+            "Airbnb property design",
+            "Vrbo property staging"
+          ]
+        },
+        "areaServed": { "@type": "Country", "name": "United States" },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:00", "closes": "18:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "12:00" }
+        ]
       },
       {
         "@type": "WebSite",
@@ -49,8 +72,30 @@ const schema = JSON.stringify([
         "url": "https://cynthiastayscurated.com/",
         "image": "https://cynthiastayscurated.com/images/cynthia-travel-advisor-str-designer.jpg",
         "priceRange": "$$-$$$",
-        "serviceType": ["Travel Planning", "Interior Design", "Short-Term Rental Design"],
-        "areaServed": { "@type": "Country", "name": "United States" }
+        "serviceType": ["Travel Planning", "Interior Design", "Short-Term Rental Design", "Vacation Planning"],
+        "areaServed": { "@type": "Country", "name": "United States" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Free Travel Quote",
+              "url": "https://cynthiastayscurated.com/contact-travel",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "Complimentary travel planning for Disney, Universal, cruises, national parks, beach resorts, and city trips. First quote plus two revisions included at no charge."
+            },
+            {
+              "@type": "Offer",
+              "name": "Free Design Consultation",
+              "url": "https://cynthiastayscurated.com/contact-design",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "Complimentary initial consultation for short-term rental interior design. Virtual packages available for new properties and property refreshes."
+            }
+          ]
+        }
       }
     ]
   },
@@ -63,15 +108,31 @@ const schema = JSON.stringify([
         "name": "What does a travel advisor do that I can't do myself?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A travel advisor handles the research, booking, and logistics of your trip — comparing resorts, timing pricing drops, securing perks you can't get online, and acting as your advocate if anything goes wrong. At Cynthia Stays Curated, travel planning is complimentary for most bookings."
+          "text": "A travel advisor handles research, booking, and trip logistics — comparing resorts, tracking pricing windows, securing supplier perks unavailable online, and acting as your advocate if anything goes wrong before or during travel. At Cynthia Stays Curated, travel planning is complimentary for most bookings because Cynthia earns compensation directly from travel suppliers, not from clients."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you charge for a short-term rental design consultation?",
+        "name": "Is using a travel advisor for Disney World worth it?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Initial design consultations are free so we can discuss your property, goals, and budget before you commit to anything."
+          "text": "Yes. A Disney-specialist travel advisor tracks crowd calendars, resort pricing changes, dining reservation windows, and package promotions that shift frequently. Cynthia Stays Curated offers free Disney World, Disneyland, and Disney Cruise Line trip planning — clients receive a custom proposal within one to three business days at no charge."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a travel advisor book Sandals resorts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Cynthia is an independent travel advisor who specializes in Sandals all-inclusive resorts in the Caribbean. She can access room category upgrades, honeymoon and anniversary amenities, and exclusive perks not available when booking direct through the Sandals website."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What cruise lines does Cynthia book?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cynthia Stays Curated books Royal Caribbean, Virgin Voyages, and MSC Cruises. She compares cabin categories, itineraries, dining packages, and shore excursions, and coordinates pre- and post-cruise hotel and transportation logistics."
         }
       },
       {
@@ -79,7 +140,23 @@ const schema = JSON.stringify([
         "name": "What destinations do you plan trips for?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Disney World, Disneyland, Disney Cruises, Universal Orlando, Royal Caribbean, Virgin Voyages, MSC, Sandals resorts, the Florida Keys, Hawaii, Zion, Grand Canyon, Big Bend, Nashville, Charleston, and Scottsdale."
+          "text": "Disney World, Disneyland, Disney Cruise Line, Universal Orlando, Islands of Adventure, Epic Universe, Royal Caribbean cruises, Virgin Voyages, MSC Cruises, Sandals resorts, Florida Keys, Hawaii, Zion National Park, Grand Canyon, Big Bend National Park, Nashville, Charleston, and Scottsdale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you charge for a short-term rental design consultation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The initial design consultation is free. Cynthia reviews your property, target guest profile, and budget before recommending a design package. All short-term rental design services are delivered virtually, so she works with hosts anywhere in the United States."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What short-term rental design packages do you offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Four virtual packages are available: New Property Virtual Design with Links, New Property Virtual Design + Ordering, Property Refresh Virtual Design with Links, and Property Refresh + Ordering. The Vision package establishes space definition and feel; Craft adds detailed material and furniture curation; Execute covers full implementation from sourcing through ordering management."
         }
       },
       {
@@ -87,7 +164,23 @@ const schema = JSON.stringify([
         "name": "Do you design short-term rentals remotely?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Both New Property Virtual Design and Property Refresh packages are offered remotely, with options that include sourced links only or full ordering management."
+          "text": "Yes. All short-term rental design packages — including new property design and property refresh — are offered entirely virtually. Cynthia works with Airbnb and Vrbo hosts across the United States without requiring an in-person visit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to receive a travel proposal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Travel proposals from Cynthia Stays Curated are delivered within one to three business days of receiving a completed quote request. The first proposal plus up to two revisions are complimentary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Cynthia plan national park trips?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Cynthia Stays Curated plans national park itineraries including Zion National Park, Grand Canyon National Park, and Big Bend National Park. She handles lodging, permit timing, activity sequencing, and logistics for both first-time and repeat park visitors."
         }
       }
     ]
@@ -249,6 +342,29 @@ const schema = JSON.stringify([
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- GEO: AI-readable context block — visually hidden, fully crawlable -->
+  <section class="geo-context" aria-label="About Cynthia Stays Curated">
+    <div class="geo-context-inner">
+
+      <h2>About Cynthia Stays Curated</h2>
+      <p>Cynthia Stays Curated is an independent travel advisory and short-term rental interior design service founded by Cynthia. The business serves clients across the United States with two core offerings: complimentary vacation travel planning and virtual STR interior design. Travel planning is free for most bookings — Cynthia earns compensation from travel suppliers, not from clients.</p>
+
+      <h3>Travel Planning Services</h3>
+      <p>Cynthia is an independent travel advisor specializing in Disney World, Disneyland, Disney Cruise Line, Universal Orlando, Epic Universe, Royal Caribbean cruises, Virgin Voyages, MSC Cruises, Sandals all-inclusive resorts, Florida Keys beach trips, Hawaii, Zion National Park, Grand Canyon, Big Bend National Park, Nashville, Charleston, and Scottsdale. Custom travel proposals are delivered within one to three business days. The first quote and up to two revisions are complimentary. A $75 planning fee applies per request for additional revisions beyond the first two.</p>
+
+      <h3>Short-Term Rental Design Services</h3>
+      <p>Cynthia offers four virtual short-term rental interior design packages: New Property Virtual Design with Links, New Property Virtual Design + Ordering, Property Refresh Virtual Design with Links, and Property Refresh + Ordering. All packages are delivered remotely and are available to Airbnb and Vrbo hosts anywhere in the United States. Initial design consultations are free. The design approach focuses on guest experience — how a space feels on arrival, how it functions through daily use, and how it photographs for listing platforms.</p>
+
+      <h3>Why Use a Travel Advisor?</h3>
+      <p>Independent travel advisors like Cynthia have access to supplier relationships, industry pricing intelligence, and destination expertise that individual travelers cannot replicate through consumer booking websites. For Disney trips, she tracks crowd calendars, dining reservation windows, resort pricing promotions, and package availability. For Sandals resorts, she can access complimentary room upgrades, honeymoon and anniversary amenities, and exclusive perks not offered to direct-booking guests. For cruises, she compares cabin categories across Royal Caribbean, Virgin Voyages, and MSC, and coordinates pre- and post-cruise logistics.</p>
+
+      <h3>Contact and Hours</h3>
+      <p>To request a free travel quote, visit cynthiastayscurated.com/contact-travel. To request a free short-term rental design consultation, visit cynthiastayscurated.com/contact-design. Email: cynthiastayscurated@gmail.com. Office hours: Monday through Thursday 9:00 AM to 6:00 PM CST, Friday 9:00 AM to 12:00 PM CST. Closed weekends.</p>
+
     </div>
   </section>
 
