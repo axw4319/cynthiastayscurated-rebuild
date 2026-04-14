@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does a travel advisor do that I can't do myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A travel advisor handles research, booking, and trip logistics — comparing resorts, tracking pricing windows, securing supplier perks unavailable online, and acting as your advocate if anything goes wrong before or during travel. At Cynthia Stays Curated, travel planning is complimentary for most bookings because Cynthia earns compensation directly from travel suppliers, not from clients."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is using a travel advisor for Disney World worth it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A Disney-specialist travel advisor tracks crowd calendars, resort pricing changes, dining reservation windows, and package promotions that shift frequently. Cynthia Stays Curated offers free Disney World, Disneyland, and Disney Cruise Line trip planning — clients receive a custom proposal within one to three business days at no charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a travel advisor book Sandals resorts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Cynthia is an independent travel advisor who specializes in Sandals all-inclusive resorts in the Caribbean. She can access room category upgrades, honeymoon and anniversary amenities, and exclusive perks not available when booking direct through the Sandals website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What cruise lines does Cynthia book?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cynthia Stays Curated books Royal Caribbean, Virgin Voyages, and MSC Cruises. She compares cabin categories, itineraries, dining packages, and shore excursions, and coordinates pre- and post-cruise hotel and transportation logistics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What destinations do you plan trips for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Disney World, Disneyland, Disney Cruise Line, Universal Orlando, Islands of Adventure, Epic Universe, Royal Caribbean cruises, Virgin Voyages, MSC Cruises, Sandals resorts, Florida Keys, Hawaii, Zion National Park, Grand Canyon, Big Bend National Park, Nashville, Charleston, and Scottsdale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to receive a travel proposal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Travel proposals from Cynthia Stays Curated are delivered within one to three business days of receiving a completed quote request. The first proposal plus up to two revisions are complimentary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the travel planning service free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, travel planning is complimentary for most bookings. Cynthia earns compensation from travel suppliers — resorts, cruise lines, and tour operators — not from clients. A $75 planning fee applies per request for additional revisions beyond the first two, or when switching destinations, resorts, or dates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Cynthia plan national park trips?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Cynthia Stays Curated plans national park itineraries including Zion National Park, Grand Canyon National Park, and Big Bend National Park. She handles lodging, permit timing, activity sequencing, and logistics for both first-time and repeat park visitors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you charge for a short-term rental design consultation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The initial design consultation is free. Cynthia reviews your property, target guest profile, and budget before recommending a design package. All short-term rental design services are delivered virtually, so she works with hosts anywhere in the United States."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What short-term rental design packages do you offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four virtual packages are available: New Property Virtual Design with Links, New Property Virtual Design + Ordering, Property Refresh Virtual Design with Links, and Property Refresh + Ordering. The Vision package establishes space definition and feel; Craft adds detailed material and furniture curation; Execute covers full implementation from sourcing through ordering management."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you design short-term rentals remotely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All short-term rental design packages — including new property design and property refresh — are offered entirely virtually. Cynthia works with Airbnb and Vrbo hosts across the United States without requiring an in-person visit."
+      }
+    }
+  ]
+});
+---
+
+<BaseLayout
+  title="FAQ | Cynthia Stays Curated"
+  description="Answers to common questions about Cynthia Stays Curated's travel advisory and short-term rental interior design services."
+  canonical="https://cynthiastayscurated.com/faq"
+  ogTitle="FAQ | Cynthia Stays Curated"
+  ogDescription="Answers to common questions about travel planning, STR design, pricing, and process."
+  ogImage="https://cynthiastayscurated.com/images/cynthia-stays-curated-logo-horizontal.png"
+  schema={schema}
+>
+
+  <main class="legal-page">
+    <h1>Frequently Asked Questions</h1>
+
+    <section>
+      <h2>Travel Planning</h2>
+
+      <h3>What does a travel advisor do that I can't do myself?</h3>
+      <p>A travel advisor handles research, booking, and trip logistics — comparing resorts, tracking pricing windows, securing supplier perks unavailable online, and acting as your advocate if anything goes wrong before or during travel. At Cynthia Stays Curated, travel planning is complimentary for most bookings because Cynthia earns compensation directly from travel suppliers, not from clients.</p>
+
+      <h3>Is the travel planning service free?</h3>
+      <p>Yes, for most bookings. Cynthia earns compensation from travel suppliers — resorts, cruise lines, and tour operators — not from clients. The first travel proposal plus up to two revisions are included at no charge. A $75 planning fee applies per request for additional revisions beyond the first two, or when switching destinations, resorts, or dates.</p>
+
+      <h3>How long does it take to receive a travel proposal?</h3>
+      <p>Travel proposals are delivered within one to three business days of receiving a completed quote request.</p>
+
+      <h3>Is using a travel advisor for Disney World worth it?</h3>
+      <p>Yes. A Disney-specialist travel advisor tracks crowd calendars, resort pricing changes, dining reservation windows, and package promotions that shift frequently. Cynthia offers free Disney World, Disneyland, and Disney Cruise Line trip planning — clients receive a custom proposal within one to three business days at no charge.</p>
+
+      <h3>Can a travel advisor book Sandals resorts?</h3>
+      <p>Yes. Cynthia specializes in Sandals all-inclusive resorts in the Caribbean. She can access room category upgrades, honeymoon and anniversary amenities, and exclusive perks not available when booking direct through the Sandals website.</p>
+
+      <h3>What cruise lines does Cynthia book?</h3>
+      <p>Cynthia books Royal Caribbean, Virgin Voyages, and MSC Cruises. She compares cabin categories, itineraries, dining packages, and shore excursions, and coordinates pre- and post-cruise hotel and transportation logistics.</p>
+
+      <h3>What destinations do you plan trips for?</h3>
+      <p>Disney World, Disneyland, Disney Cruise Line, Universal Orlando, Islands of Adventure, Epic Universe, Royal Caribbean cruises, Virgin Voyages, MSC Cruises, Sandals resorts, Florida Keys, Hawaii, Zion National Park, Grand Canyon, Big Bend National Park, Nashville, Charleston, and Scottsdale.</p>
+
+      <h3>Does Cynthia plan national park trips?</h3>
+      <p>Yes. Cynthia plans national park itineraries including Zion, Grand Canyon, and Big Bend. She handles lodging, permit timing, activity sequencing, and logistics for both first-time and repeat park visitors.</p>
+    </section>
+
+    <section>
+      <h2>Short-Term Rental Design</h2>
+
+      <h3>Do you charge for a short-term rental design consultation?</h3>
+      <p>No. The initial design consultation is free. Cynthia reviews your property, target guest profile, and budget before recommending a design package.</p>
+
+      <h3>What short-term rental design packages do you offer?</h3>
+      <p>Four virtual packages are available: New Property Virtual Design with Links, New Property Virtual Design + Ordering, Property Refresh Virtual Design with Links, and Property Refresh + Ordering. The Vision package establishes space definition and feel; Craft adds detailed material and furniture curation; Execute covers full implementation from sourcing through ordering management.</p>
+
+      <h3>Do you design short-term rentals remotely?</h3>
+      <p>Yes. All design packages are offered entirely virtually. Cynthia works with Airbnb and Vrbo hosts across the United States without requiring an in-person visit.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Still have questions? Email us at <a href="mailto:cynthiastayscurated@gmail.com">cynthiastayscurated@gmail.com</a>.</p>
+      <p><strong>Office hours:</strong> Monday–Thursday 9:00 AM–6:00 PM CST &middot; Friday 9:00 AM–12:00 PM CST</p>
+    </section>
+  </main>
+
+</BaseLayout>
+
+<style is:global>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #f8f6f2;
+      --cream-alt: #f4f1ec;
+      --teal-dark: #1c3939;
+      --teal: #2d6a6a;
+      --teal-footer: #2a6363;
+      --coral-solid: #e18c84;
+      --gold: #e1a75c;
+      --border-gray: #d4d0ca;
+      --font-heading: 'Bodoni Moda', 'Bodoni MT', 'Didot', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--teal-dark); background: var(--cream); overflow-x: hidden; line-height: 1.7; }
+    img { display: block; max-width: 100%; }
+    a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--teal-dark); }
+
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: transparent; transition: all 0.35s ease; }
+    .header.scrolled { background: rgba(28, 57, 57, 0.96); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.15); padding: 8px 40px; }
+    .logo-svg { display: block; transition: opacity 0.3s ease; }
+    .logo-svg--circle { width: 180px; height: auto; }
+    .logo-svg--wide { width: 260px; height: auto; display: none; }
+    .header.scrolled .logo-svg--circle { display: none; }
+    .header.scrolled .logo-svg--wide { display: block; }
+    .menu-btn { background: #e1a75c; border: none; padding: 10px 34px; border-radius: 50px; font-family: var(--font-body); font-size: 23px; font-weight: 400; color: var(--cream); cursor: pointer; transition: all 0.3s ease; min-width: 145px; height: 49px; display: flex; align-items: center; justify-content: center; }
+    .menu-btn:hover { background: #c9934e; transform: translateY(-1px); }
+
+    .legal-page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 220px 40px 100px;
+    }
+
+    .legal-page h1 {
+      font-family: var(--font-heading);
+      font-size: 72px;
+      font-weight: 400;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 60px;
+      color: var(--teal-dark);
+    }
+
+    .legal-page section {
+      margin-bottom: 60px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    .legal-page section:last-child {
+      border-bottom: none;
+    }
+
+    .legal-page h2 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin: 0 0 30px;
+      color: var(--teal-dark);
+    }
+
+    .legal-page h3 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 500;
+      margin: 36px 0 10px;
+      color: var(--teal-dark);
+    }
+
+    .legal-page h3:first-of-type { margin-top: 0; }
+
+    .legal-page p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--teal-dark);
+      margin-bottom: 14px;
+    }
+
+    .legal-page strong { font-weight: 600; color: var(--teal-dark); }
+
+    .footer { background: var(--teal-footer); color: var(--cream); padding: 60px 60px 30px; }
+    .footer-top { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(248, 246, 242, 0.18); }
+    .logo-svg--footer { height: 70px; width: auto; }
+    .footer-content { display: grid; grid-template-columns: auto 1fr 1fr; gap: 100px; align-items: start; max-width: 1400px; margin: 0 auto; }
+    .footer-social { display: flex; gap: 16px; justify-content: flex-start; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(248, 246, 242, 0.95); border-radius: 50%; color: var(--teal-footer); text-decoration: none; transition: all 0.3s; }
+    .footer-social a:hover { background: #fff; transform: translateY(-2px); }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 14px; }
+    .footer-links a { color: var(--cream); text-decoration: none; font-size: 16px; opacity: 0.88; transition: opacity 0.3s; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom { text-align: center; padding-top: 30px; font-size: 14px; opacity: 0.7; }
+
+    .mobile-menu { position: fixed; inset: 0; background: var(--teal-footer); z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu-close { position: absolute; top: 32px; right: 40px; background: var(--cream); border: none; width: 52px; height: 52px; border-radius: 50%; font-size: 22px; color: var(--teal-dark); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .mobile-menu-links { list-style: none; text-align: center; }
+    .mobile-menu-links li { padding: 22px 0; border-bottom: 1px solid rgba(248, 246, 242, 0.2); opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .mobile-menu-links li:last-child { border-bottom: none; }
+    .mobile-menu.open .mobile-menu-links li { opacity: 1; transform: translateY(0); }
+    .mobile-menu.open .mobile-menu-links li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(2) { transition-delay: 0.25s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(3) { transition-delay: 0.35s; }
+    .mobile-menu.open .mobile-menu-links li:nth-child(4) { transition-delay: 0.45s; }
+    .mobile-menu-links a { font-family: var(--font-heading); font-size: clamp(22px, 5vw, 32px); color: var(--cream); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .header { padding: 14px 20px; }
+      .header.scrolled { padding: 10px 20px; }
+      .logo-svg--circle { width: 130px; }
+      .header.scrolled .logo-svg--wide { width: 190px; }
+      .menu-btn { padding: 10px 26px; font-size: 17px; min-width: 120px; height: 44px; }
+
+      .legal-page { padding: 160px 24px 60px; }
+      .legal-page h1 { font-size: 48px; letter-spacing: -1px; }
+      .legal-page h2 { font-size: 28px; }
+      .legal-page h3 { font-size: 20px; }
+
+      .footer { padding: 50px 24px 30px; }
+      .footer-content { grid-template-columns: 1fr; gap: 36px; }
+      .logo-svg--footer { height: 55px; }
+    }
+
+    @media (max-width: 480px) {
+      .logo-svg--circle { width: 100px; }
+      .legal-page { padding: 140px 20px 60px; }
+      .legal-page h1 { font-size: 36px; letter-spacing: -0.5px; }
+    }
+</style>
