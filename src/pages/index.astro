@@ -857,6 +857,55 @@ const schema = JSON.stringify([
     .design-card-label { max-width: 90%; }
     .design-card-label h3 { font-size: 36px; }
   }
+
+  /* ===== GEO CONTEXT BLOCK ===== */
+  .geo-context {
+    background: var(--cream-alt);
+    border-top: 1px solid #d8d4ce;
+    padding: 80px 60px;
+  }
+
+  .geo-context-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .geo-context h2 {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    letter-spacing: -0.8px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .geo-context h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    letter-spacing: -0.3px;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .geo-context p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--teal-dark);
+    opacity: 0.85;
+    max-width: 780px;
+  }
+
+  @media (max-width: 768px) {
+    .geo-context { padding: 50px 24px; }
+    .geo-context h2 { font-size: 28px; }
+    .geo-context h3 { font-size: 20px; }
+    .geo-context p { font-size: 15px; }
+  }
 </style>
 
 <script>

@@ -1,42 +1,113 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Service",
-      "name": "Free Travel Quote",
-      "url": "https://cynthiastayscurated.com/contact-travel",
-      "provider": {
-        "@type": "Organization",
-        "name": "Cynthia Stays Curated",
-        "url": "https://cynthiastayscurated.com/"
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Free Travel Quote",
+        "url": "https://cynthiastayscurated.com/contact-travel",
+        "provider": {
+          "@type": "Organization",
+          "name": "Cynthia Stays Curated",
+          "url": "https://cynthiastayscurated.com/",
+          "email": "cynthiastayscurated@gmail.com"
+        },
+        "serviceType": "Travel Planning",
+        "areaServed": { "@type": "Country", "name": "United States" },
+        "description": "Cynthia Stays Curated offers complimentary custom travel planning for Disney World, Disneyland, Disney Cruise Line, Universal Orlando, Royal Caribbean, Virgin Voyages, MSC Cruises, Sandals resorts, Florida Keys, Hawaii, national parks, and city getaways. First quote plus two revisions are included at no charge. Proposals delivered within one to three business days.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "First travel quote plus up to two revisions are complimentary. A $75 planning fee applies per request for additional revisions (fourth and beyond) or destination changes."
+        },
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://cynthiastayscurated.com/contact-travel",
+          "servicePhone": "",
+          "availableLanguage": "English"
+        }
       },
-      "serviceType": "Travel Planning",
-      "areaServed": { "@type": "Country", "name": "United States" },
-      "description": "Custom travel quotes for Disney, Universal, cruises, national parks, beach escapes, and metropolitan getaways. First quote plus 2 revisions complimentary.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "Complimentary first quote and up to 2 revisions."
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cynthiastayscurated.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Free Travel Quote", "item": "https://cynthiastayscurated.com/contact-travel" }
+        ]
+      },
+      {
+        "@type": "ContactPage",
+        "url": "https://cynthiastayscurated.com/contact-travel",
+        "name": "Free Travel Quote Request"
       }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cynthiastayscurated.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Free Travel Quote", "item": "https://cynthiastayscurated.com/contact-travel" }
-      ]
-    },
-    {
-      "@type": "ContactPage",
-      "url": "https://cynthiastayscurated.com/contact-travel",
-      "name": "Free Travel Quote Request"
-    }
-  ]
-});
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is travel planning with Cynthia Stays Curated really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Travel planning is complimentary for most bookings at Cynthia Stays Curated. Cynthia earns compensation directly from travel suppliers — resorts, cruise lines, and tour operators — not from clients. The first quote plus up to two revisions are included at no charge. A $75 planning fee applies per request for additional revisions or when switching destinations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to get a travel proposal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Travel proposals from Cynthia Stays Curated are delivered within one to three business days of receiving a completed quote request form. This form is best suited to travelers who are ready to plan and intend to book within the next seven to ten business days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What information do I need to request a travel quote?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To request a travel quote from Cynthia, you will need your destination of interest (Disney, cruise, national park, beach, or city), preferred travel dates, number of travelers (including children's ages for Disney or Universal trips), and a general budget range. Additional preferences such as resort category, cabin type, or accessibility requirements are helpful but not required to start."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Cynthia book Disney World trips for families with young children?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Disney World and Disneyland are among Cynthia's most popular destinations for families with young children. She plans itineraries that account for age-appropriate attractions, character dining reservations, stroller logistics, park-hopper strategies, and rest-day pacing to prevent burnout. Travel planning for Disney is free for most bookings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Cynthia book Sandals all-inclusive resorts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Cynthia is an independent travel advisor with specialist knowledge of Sandals all-inclusive resorts in the Caribbean. She can compare resort locations (Jamaica, Barbados, St. Lucia, Bahamas, Antigua, and others), room categories, and dining options, and can access exclusive amenities — including honeymoon and anniversary perks — not available when booking direct."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What cruise lines does Cynthia plan trips for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cynthia Stays Curated books Royal Caribbean, Virgin Voyages, and MSC Cruises. She helps clients compare itineraries, cabin categories, dining packages, and shore excursion options, and can coordinate pre- and post-cruise hotel and transportation needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Cynthia plan national park road trips?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Cynthia Stays Curated plans itineraries for Zion National Park, Grand Canyon National Park, and Big Bend National Park. She handles lodging (including in-park accommodations where available), permit timing, activity sequencing, and driving logistics for both first-time and repeat park visitors."
+        }
+      }
+    ]
+  }
+]);
 ---
 
 <BaseLayout
