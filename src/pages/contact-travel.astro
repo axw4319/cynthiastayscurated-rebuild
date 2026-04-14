@@ -450,16 +450,22 @@ const schema = JSON.stringify({
   .tq .resort-block .field:last-child { margin-bottom: 0; }
   .tq .resort-block label { font-size: 12px; }
   .tq .resort-block select { font-size: 13px; padding: 8px 10px; }
-  .tq .traveler-card {
+  .tq :global(.traveler-card) {
     border: 1px solid #e5e1db; border-radius: 8px; padding: 1rem 1.25rem;
     margin-bottom: 12px; background: #fff;
   }
-  .tq .traveler-card-header { font-size: 12px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
-  .tq .traveler-card .row-3 { gap: 10px; }
-  .tq .traveler-card .field { margin-bottom: 10px; }
-  .tq .traveler-card .field:last-child { margin-bottom: 0; }
-  .tq .traveler-card label { font-size: 12px; }
-  .tq .traveler-card input { font-size: 13px; padding: 8px 10px; }
+  .tq :global(.traveler-card-header) { font-size: 12px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+  .tq :global(.traveler-card .row-3) { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .tq :global(.traveler-card .field) { margin-bottom: 10px; }
+  .tq :global(.traveler-card .field:last-child) { margin-bottom: 0; }
+  .tq :global(.traveler-card label) { display: block; font-size: 12px; font-weight: 500; color: var(--teal-dark); margin-bottom: 5px; }
+  .tq :global(.traveler-card input) { width: 100%; font-size: 13px; padding: 8px 10px; font-family: var(--font-body); background: #fff; border: 1px solid #d4d0ca; border-radius: 6px; color: var(--teal-dark); transition: border-color 0.15s; box-sizing: border-box; }
+  .tq :global(.traveler-card input:focus) { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(45,106,106,0.08); }
+  .tq :global(.traveler-card input[disabled]) { opacity: 0.55; cursor: not-allowed; background: #f8f6f2; }
+  .tq :global(.traveler-card .prefilled-note) { font-size: 11px; color: #6b8a8a; margin-top: 4px; margin-bottom: 10px; }
+  .tq :global(.traveler-card .field.invalid input) { border-color: #d9534f; }
+  .tq :global(.traveler-card .field .error-msg) { font-size: 11px; color: #d9534f; margin-top: 3px; display: none; }
+  .tq :global(.traveler-card .field.invalid .error-msg) { display: block; }
   .tq .submit-row { display: flex; justify-content: flex-end; margin-top: 2rem; }
   .tq .submit-btn {
     background: var(--coral-solid); color: #fff; border: none; padding: 12px 36px;
@@ -549,31 +555,46 @@ const schema = JSON.stringify({
   });
 
   function makeTravelerCard(prefix, label, isBooker) {
-    const card = document.createElement('div');
+    var req = isBooker ? '' : ' required';
+    var card = document.createElement('div');
     card.className = 'traveler-card';
     card.innerHTML =
       '<div class="traveler-card-header">' + label + (isBooker ? ' (you)' : '') + '</div>' +
       '<div class="row-3">' +
-        '<div class="field"><label>First name</label><input type="text" name="' + prefix + '_first" placeholder="First"' + (isBooker ? ' disabled style="opacity:0.5;cursor:not-allowed;"' : '') + ' /></div>' +
-        '<div class="field"><label>Middle name</label><input type="text" name="' + prefix + '_middle" placeholder="Middle"' + (isBooker ? ' disabled style="opacity:0.5;cursor:not-allowed;"' : '') + ' /></div>' +
-        '<div class="field"><label>Last name</label><input type="text" name="' + prefix + '_last" placeholder="Last"' + (isBooker ? ' disabled style="opacity:0.5;cursor:not-allowed;"' : '') + ' /></div>' +
+        '<div class="field">' +
+          '<label>First name' + (isBooker ? '' : ' <span style="color:#e18c84">*</span>') + '</label>' +
+          '<input type="text" name="' + prefix + '_first" placeholder="First"' + (isBooker ? ' disabled' : req) + ' />' +
+          (!isBooker ? '<div class="error-msg">Required.</div>' : '') +
+        '</div>' +
+        '<div class="field"><label>Middle name</label><input type="text" name="' + prefix + '_middle" placeholder="Middle"' + (isBooker ? ' disabled' : '') + ' /></div>' +
+        '<div class="field">' +
+          '<label>Last name' + (isBooker ? '' : ' <span style="color:#e18c84">*</span>') + '</label>' +
+          '<input type="text" name="' + prefix + '_last" placeholder="Last"' + (isBooker ? ' disabled' : req) + ' />' +
+          (!isBooker ? '<div class="error-msg">Required.</div>' : '') +
+        '</div>' +
       '</div>' +
-      (isBooker ? '<div style="font-size:11px;color:#6b8a8a;margin-top:2px;margin-bottom:10px;">Name pre-filled from your information above.</div>' : '') +
-      '<div class="field" style="margin-bottom:0;"><label>Date of birth</label><input type="date" name="' + prefix + '_dob" max="' + TODAY + '" /></div>';
+      (isBooker ? '<div class="prefilled-note">Name and date of birth pre-filled from your information above.</div>' : '') +
+      '<div class="field" style="margin-bottom:0;">' +
+        '<label>Date of birth' + (isBooker ? '' : ' <span style="color:#e18c84">*</span>') + '</label>' +
+        '<input type="date" name="' + prefix + '_dob" max="' + TODAY + '"' + (isBooker ? ' disabled' : req) + ' />' +
+        (!isBooker ? '<div class="error-msg">Required.</div>' : '') +
+      '</div>';
     return card;
   }
 
-  function syncBookerName() {
+  function syncBookerInfo() {
     var container = document.getElementById('travelerProfiles');
     var firstCard = container.querySelector('.traveler-card');
     if (!firstCard) return;
-    var fields = firstCard.querySelectorAll('input[type=text][disabled]');
     var form = document.getElementById('quoteForm');
-    if (fields.length >= 3) {
-      fields[0].value = form.firstName.value;
-      fields[1].value = form.middleName.value;
-      fields[2].value = form.lastName.value;
+    var disabledTexts = firstCard.querySelectorAll('input[type=text][disabled]');
+    if (disabledTexts.length >= 3) {
+      disabledTexts[0].value = form.firstName.value;
+      disabledTexts[1].value = form.middleName.value;
+      disabledTexts[2].value = form.lastName.value;
     }
+    var dobDisabled = firstCard.querySelector('input[type=date][disabled]');
+    if (dobDisabled) dobDisabled.value = form.bookerDOB.value;
   }
 
   function rebuildProfiles() {
@@ -585,7 +606,7 @@ const schema = JSON.stringify({
     for (var i = 1; i <= adults; i++) container.appendChild(makeTravelerCard('adult_' + i, 'Adult ' + i, i === 1));
     for (var i = 1; i <= children; i++) container.appendChild(makeTravelerCard('child_' + i, 'Child ' + i, false));
     for (var i = 1; i <= infants; i++) container.appendChild(makeTravelerCard('infant_' + i, 'Infant ' + i, false));
-    syncBookerName();
+    syncBookerInfo();
   }
 
   rebuildProfiles();
@@ -593,9 +614,10 @@ const schema = JSON.stringify({
   document.getElementById('childCount').addEventListener('input', rebuildProfiles);
   document.getElementById('infantCount').addEventListener('input', rebuildProfiles);
 
-  ['firstName','middleName','lastName'].forEach(function(name) {
+  ['firstName','middleName','lastName','bookerDOB'].forEach(function(name) {
     var input = document.querySelector('input[name="' + name + '"]');
-    if (input) input.addEventListener('input', syncBookerName);
+    if (input) input.addEventListener('input', syncBookerInfo);
+    if (input) input.addEventListener('change', syncBookerInfo);
   });
 
   function setInvalid(id, invalid) {
@@ -630,6 +652,17 @@ const schema = JSON.stringify({
     if (!form.departDate.value) { setInvalid('f-depart', true); valid = false; } else setInvalid('f-depart', false);
     if (!form.departCity.value.trim()) { setInvalid('f-depart-city', true); valid = false; } else setInvalid('f-depart-city', false);
     if ((parseInt(form.adultCount.value) || 0) < 1) { setInvalid('f-adults', true); valid = false; } else setInvalid('f-adults', false);
+
+    // Validate traveler profile required fields
+    document.querySelectorAll('#travelerProfiles .traveler-card').forEach(function(card) {
+      card.querySelectorAll('input[required]').forEach(function(input) {
+        var fieldEl = input.closest('.field');
+        if (!fieldEl) return;
+        var empty = !input.value.trim();
+        fieldEl.classList.toggle('invalid', empty);
+        if (empty) valid = false;
+      });
+    });
 
     if (!valid) {
       var firstInvalid = document.querySelector('.field.invalid');
