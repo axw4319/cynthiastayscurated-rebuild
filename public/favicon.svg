@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <!-- Rounded square background in brand teal -->
-  <rect width="64" height="64" rx="14" fill="#1c3939"/>
+  <rect width="64" height="64" fill="#1c3939"/>
 
   <!-- Arch/window frame (echoes the brand logo motif) -->
   <path d="M20 48 L20 28 Q20 16 32 16 Q44 16 44 28 L44 48 Z"
