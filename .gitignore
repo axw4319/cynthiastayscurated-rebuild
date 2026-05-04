@@ -49,3 +49,9 @@ video-frames/
 /test-design-form-filled.png
 /test-design-form-submitted.png
 dist/
+
+# Astro build cache
+.astro/
+
+# Playwright (qa-flow-tester) artifacts
+tests/playwright/
