@@ -55,3 +55,6 @@ dist/
 
 # Playwright (qa-flow-tester) artifacts
 tests/playwright/
+
+# MCP config — contains live API keys
+.mcp.json
